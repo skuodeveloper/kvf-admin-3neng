@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="win7" style="font-size: 100px;" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+	<title>警员档案</title>
+
+    <link rel="stylesheet" th:href="@{/static/myfile/css/action.css}">
+    <link rel="stylesheet"  th:href="@{/static/myfile/css/modicons.min.css}">
+    <link rel="stylesheet" th:href="@{/static/myfile/css/skin.css}">
+    <link rel="stylesheet" th:href="@{/static/myfile/css/jquery.mCustomScrollbar.min.css}">
+    <link rel="stylesheet" th:href="@{/static/myfile/css/common.css}">
+    <link rel="stylesheet" th:href="@{/static/myfile/css/page_common.css}">
+    <link rel="stylesheet" th:href="@{/static/myfile/css/myfiles.css}">
+
+    <style type="text/css">
+        .main-top-right {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body style="font-size: 14px;">
+
+<div class="main">
+    <div class="main-wrap" id="main">
+
+        <!-- 头部 -->
+<!--        <div class="main-top" id="top-info">-->
+<!--            <div class="clearfix">-->
+<!--                <div class="date l">-->
+<!--                    <label class="l">当前时间 :</label> <span id="date" class="l">2023年01月17日</span> <i class="l"></i><span-->
+<!--                        id="hour" class="l">08:52:26</span>-->
+<!--                </div>-->
+<!--                <div class="main-top-right r">-->
+<!--                    <div class="search l">-->
+<!--                        <a class="search-btn r"></a>-->
+<!--                        <div class="search-box">-->
+<!--                            <input type="text" placeholder="关键字搜索">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="user l">-->
+<!--                        <img src="/static/myfile/image/user_icon.png" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="page-name">-->
+<!--                    <img src="/static/myfile/image/page_name.png" id="logo" alt="" style="cursor:pointer">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <!-- 中间内容 -->
+        <!-- 返回区域 -->
+<!--        <div class="clearfix back-area">-->
+<!--            <a class="l back-link" style="cursor:pointer"> 警员档案 </a>-->
+<!--            <ul class="r">-->
+<!--                <li class="info-item">-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+        <!-- 内容 -->
+        <div class="content-wrap" id="content-wrap">
+            <div class="personal-info clearfix">
+                <div class="l personal-imgs">
+                    <div class="personal-img">
+                        <img id="personphoto" alt="" th:src="${editInfo.avatar}">
+                    </div>
+                </div>
+                <div class="l personal-details">
+                    <div class="clearfix name-area">
+                        <div class="l personal-name" id="a0101" th:text="${editInfo.xm}"></div>
+                        <!-- <i class="l personal-sex male"></i> -->
+                    </div>
+                    <ul class="birth-items clearfix">
+                        <li class="birth-item">身份证号：[[${editInfo.sfzh}]]</li>
+                        <li class="birth-item">性别：[[${editInfo.xb == 1? '男':'女'}]]</li>
+                        <li class="birth-item">出生年月：[[${editInfo.csny}]]</li>
+
+                        <li class="birth-item">电话号码：[[${editInfo.tel}]]</li>
+                        <li class="birth-item">警务序列：[[${editInfo.jwxl == 1? '执法勤务':'警务技术'}]]</li>
+                        <li class="birth-item">部门：[[${editInfo.dept}]]</li>
+
+                        <li class="birth-item">参加工作年月：[[${editInfo.cjgzny}]]</li>
+                        <li class="birth-item">参加公安年月：[[${editInfo.cjgany}]]</li>
+                        <li class="birth-item">任一级警长、警务技术一级主管年月：[[${editInfo.yjny}]]</li>
+
+                        <li class="birth-item">总积分：[[${editInfo.score}]]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 个人记录 -->
+            <ul class="records-items">
+                <li class="records-item">
+                    <div class="records-title clearfix">
+                        <div class="l records-title-left">
+                            01
+                            <span>履历</span>
+                        </div>
+                        <i class="r records-arr"></i>
+                    </div>
+                    <div class="records-content">
+                        <ul class="resume-items">
+                            <p th:each="user : ${editInfo.historys}" class="resume-item">[[${user.tStart}]] — [[${user.tEnd}]]：  [[${T(com.kalvin.kvf.modules.util.TestUtils).getHistory(user.content)}]]&nbsp;&nbsp;&nbsp;积分：[[${user.score}]]</p>
+                        </ul>
+                    </div>
+                </li>
+                <li class="records-item">
+                    <div class="records-title clearfix">
+                        <div class="l records-title-left">
+                            02
+                            <span>奖励记录</span>
+                        </div>
+                        <i class="r records-arr"></i>
+                    </div>
+                    <div class="records-content">
+                        <ul class="resume-items">
+                            <p th:each="user : ${editInfo.achievements}" class="resume-item">[[${user.ggTime}]]  [[${T(com.kalvin.kvf.modules.util.TestUtils).getAchievement(user.content)}]]&nbsp;&nbsp;&nbsp;积分：[[${user.score}]]</p>
+                        </ul>
+                    </div>
+                </li>
+                <li class="records-item">
+                    <div class="records-title clearfix">
+                        <div class="l records-title-left">
+                            03
+                            <span>惩戒记录</span>
+                        </div>
+                        <i class="r records-arr"></i>
+                    </div>
+                    <div class="records-content">
+                        <ul class="resume-items">
+                            <p th:each="user : ${editInfo.punishes}"  class="resume-item">[[${user.ggTime}]] [[${T(com.kalvin.kvf.modules.util.TestUtils).getPunish(user.content)}]]&nbsp;&nbsp;&nbsp;积分：-[[${user.score}]]</p>
+                        </ul>
+                    </div>
+                </li>
+                <li class="records-item">
+                    <div class="records-title clearfix">
+                        <div class="l records-title-left">
+                            04
+                            <span>年度考核结果</span>
+                        </div>
+                        <i class="r records-arr"></i>
+                    </div>
+                    <div class="records-content">
+                        <ul class="resume-items">
+                            <p th:each="user : ${editInfo.yearTests}" class="resume-item">[[${user.ggTime}]]年年度考核  [[${T(com.kalvin.kvf.modules.util.TestUtils).getYearTest(user.content)}]]</p>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

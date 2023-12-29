@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kalvin.kvf.modules.func.mapper.UserInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kalvin.kvf.modules.func.entity.UserInfo">
+        <id column="id" property="id" />
+        <result column="guid" property="guid" />
+        <result column="nickname" property="nickname" />
+        <result column="avatar" property="avatar" />
+        <result column="serial_number" property="serialNumber" />
+        <result column="realname" property="realname" />
+        <result column="id_number" property="idNumber" />
+        <result column="current_position" property="currentPosition" />
+        <result column="mobilephone_number" property="mobilephoneNumber" />
+        <result column="mobilephone_short_number" property="mobilephoneShortNumber" />
+        <result column="telephone_number" property="telephoneNumber" />
+        <result column="tag" property="tag" />
+        <result column="app_id" property="appId" />
+        <result column="permission" property="permission" />
+        <result column="group_id" property="groupId" />
+        <result column="type" property="type" />
+        <result column="status" property="status" />
+        <result column="order_by" property="orderBy" />
+        <result column="remark" property="remark" />
+        <result column="data_time" property="dataTime" />
+        <result column="data_ip" property="dataIp" />
+        <result column="data_client_info" property="dataClientInfo" />
+        <result column="data_status" property="dataStatus" />
+        <result column="data_app" property="dataApp" />
+        <result column="is_online" property="isOnline" />
+        <result column="last_login_time" property="lastLoginTime" />
+        <result column="last_login_info" property="lastLoginInfo" />
+        <result column="last_login_identifier" property="lastLoginIdentifier" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       id, guid, nickname, avatar, serial_number, realname, id_number, current_position, mobilephone_number, mobilephone_short_number, telephone_number, tag, app_id, permission, group_id, type, status, order_by, remark, data_time, data_ip, data_client_info, data_status, data_app, is_online, last_login_time, last_login_info, last_login_identifier
+    </sql>
+
+    <select id="selectUserInfoList" resultType="com.kalvin.kvf.modules.func.entity.UserInfo">
+        select <include refid="Base_Column_List" /> from func_user_info
+        <trim prefix="where" prefixOverrides="and">
+            <if test="userInfo.guid != null and userInfo.guid != ''">
+                and guid like concat(#{userInfo.guid}, "%")
+            </if>
+            <if test="userInfo.nickname != null and userInfo.nickname != ''">
+                and nickname like concat(#{userInfo.nickname}, "%")
+            </if>
+            <if test="userInfo.avatar != null and userInfo.avatar != ''">
+                and avatar like concat(#{userInfo.avatar}, "%")
+            </if>
+            <if test="userInfo.serialNumber != null and userInfo.serialNumber != ''">
+                and serial_number like concat(#{userInfo.serialNumber}, "%")
+            </if>
+            <if test="userInfo.realname != null and userInfo.realname != ''">
+                and realname like concat(#{userInfo.realname}, "%")
+            </if>
+            <if test="userInfo.idNumber != null and userInfo.idNumber != ''">
+                and id_number like concat(#{userInfo.idNumber}, "%")
+            </if>
+            <if test="userInfo.currentPosition != null and userInfo.currentPosition != ''">
+                and current_position like concat(#{userInfo.currentPosition}, "%")
+            </if>
+            <if test="userInfo.mobilephoneNumber != null and userInfo.mobilephoneNumber != ''">
+                and mobilephone_number like concat(#{userInfo.mobilephoneNumber}, "%")
+            </if>
+            <if test="userInfo.mobilephoneShortNumber != null and userInfo.mobilephoneShortNumber != ''">
+                and mobilephone_short_number like concat(#{userInfo.mobilephoneShortNumber}, "%")
+            </if>
+            <if test="userInfo.telephoneNumber != null and userInfo.telephoneNumber != ''">
+                and telephone_number like concat(#{userInfo.telephoneNumber}, "%")
+            </if>
+            <if test="userInfo.tag != null and userInfo.tag != ''">
+                and tag like concat(#{userInfo.tag}, "%")
+            </if>
+            <if test="userInfo.appId != null and userInfo.appId != ''">
+                and app_id like concat(#{userInfo.appId}, "%")
+            </if>
+            <if test="userInfo.permission != null and userInfo.permission != ''">
+                and permission like concat(#{userInfo.permission}, "%")
+            </if>
+            <if test="userInfo.groupId != null and userInfo.groupId != ''">
+                and group_id like concat(#{userInfo.groupId}, "%")
+            </if>
+            <if test="userInfo.type != null and userInfo.type != ''">
+                and type like concat(#{userInfo.type}, "%")
+            </if>
+            <if test="userInfo.status != null and userInfo.status != ''">
+                and status like concat(#{userInfo.status}, "%")
+            </if>
+            <if test="userInfo.orderBy != null and userInfo.orderBy != ''">
+                and order_by like concat(#{userInfo.orderBy}, "%")
+            </if>
+            <if test="userInfo.remark != null and userInfo.remark != ''">
+                and remark like concat(#{userInfo.remark}, "%")
+            </if>
+            <if test="userInfo.dataTime != null and userInfo.dataTime != ''">
+                and data_time like concat(#{userInfo.dataTime}, "%")
+            </if>
+            <if test="userInfo.dataIp != null and userInfo.dataIp != ''">
+                and data_ip like concat(#{userInfo.dataIp}, "%")
+            </if>
+            <if test="userInfo.dataClientInfo != null and userInfo.dataClientInfo != ''">
+                and data_client_info like concat(#{userInfo.dataClientInfo}, "%")
+            </if>
+            <if test="userInfo.dataStatus != null and userInfo.dataStatus != ''">
+                and data_status like concat(#{userInfo.dataStatus}, "%")
+            </if>
+            <if test="userInfo.dataApp != null and userInfo.dataApp != ''">
+                and data_app like concat(#{userInfo.dataApp}, "%")
+            </if>
+            <if test="userInfo.isOnline != null and userInfo.isOnline != ''">
+                and is_online like concat(#{userInfo.isOnline}, "%")
+            </if>
+            <if test="userInfo.lastLoginTime != null and userInfo.lastLoginTime != ''">
+                and last_login_time like concat(#{userInfo.lastLoginTime}, "%")
+            </if>
+            <if test="userInfo.lastLoginInfo != null and userInfo.lastLoginInfo != ''">
+                and last_login_info like concat(#{userInfo.lastLoginInfo}, "%")
+            </if>
+            <if test="userInfo.lastLoginIdentifier != null and userInfo.lastLoginIdentifier != ''">
+                and last_login_identifier like concat(#{userInfo.lastLoginIdentifier}, "%")
+            </if>
+        </trim>
+    </select>
+
+</mapper>

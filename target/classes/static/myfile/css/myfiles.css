@@ -1,0 +1,343 @@
+@charset "UTF-8";
+/**!
+ * 首页
+ * date:2021-07-01
+ * author: wuzhou;
+ */
+ 
+ /* 搜索框 */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+
+.search-form .search-item:not(:first-child) {
+  margin-left: 150px;
+}
+
+.search-form .search-button {
+  margin-left: 40px;
+}
+
+.search-form .search-text {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.search-form .mini-button-state-info {
+  padding: 0 8px;
+  border-color: #3f99f8;
+  border-radius: 5px;
+  background: #3f99f8;
+}
+
+.layui-laydate {
+  width: 300px;
+}
+ 
+/* 个人信息 */
+.personal-info {
+  border-top-left-radius: 9px;
+  border-top-left-radius: 0.09rem;
+  border-top-right-radius: 9px;
+  border-top-right-radius: 0.09rem;
+  height: 303px;
+  height: 3.03rem;
+  overflow: hidden;
+  background: url("../css/images/myfiles/personal_area.jpg") right top no-repeat #514b95;
+  background-size: 1838px 303px;
+  background-size: 18.38rem 3.03rem;
+}
+
+.personal-info .personal-imgs {
+  margin-left: 101px;
+  margin-left: 1.01rem;
+  margin-top: 38px;
+  margin-top: 0.38rem;
+  width: 175px;
+  width: 1.75rem;
+  height: 220px;
+  height: 2.2rem;
+  border-radius: 5px;
+  border-radius: 0.05rem;
+  border: 1px solid #ccc3f9;
+  background-color: #756fb2;
+  overflow: hidden;
+}
+
+.personal-info .personal-img {
+  margin: 0.16rem auto 0;
+  border-radius: 5px;
+  border-radius: 0.05rem;
+  width: 141px;
+  width: 1.41rem;
+  height: 187px;
+  height: 1.87rem;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 2px 13px 0px rgba(10, 0, 96, 0.71);
+          box-shadow: 0px 2px 13px 0px rgba(10, 0, 96, 0.71);
+}
+
+.personal-info .personal-img > img {
+  width: 100%;
+  height: 100%;
+}
+
+.personal-info .personal-details {
+  padding-top: 57px;
+  padding-top: 0.57rem;
+  margin-left: 50px;
+  margin-left: 0.5rem;
+}
+
+.personal-info .name-area {
+  line-height: 25px;
+  line-height: 0.25rem;
+}
+
+.personal-info .name-area .personal-name {
+  font-size: 22px;
+  font-size: 0.22rem;
+}
+
+.personal-info .name-area .personal-sex {
+  display: block;
+  width: 23px;
+  width: 0.23rem;
+  height: 23px;
+  height: 0.23rem;
+  border: 1px solid #ccc3f9;
+  margin-left: 20px;
+  margin-left: 0.2rem;
+  border-radius: 50%;
+}
+
+.personal-info .name-area .personal-sex.male {
+  background: url("../css/images/myfiles/male_ico.png") center no-repeat #625da4;
+}
+
+.personal-info .name-area .personal-sex.female {
+  background: url("../css/images/myfiles/female_ico.png") center no-repeat #625da4;
+}
+
+.personal-info .name-area .personal-nation {
+  margin-left: 20px;
+  margin-left: 0.2rem;
+  min-width: 55px;
+  min-width: 0.55rem;
+  padding: 0px 10px;
+  padding: 0rem 0.1rem;
+  height: 23px;
+  height: 0.23rem;
+  line-height: 23px;
+  line-height: 0.23rem;
+  border-radius: 12px;
+  border-radius: 0.12rem;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #ccc3f9;
+  background-color: #635da4;
+}
+
+.personal-info .birth-items {
+  padding-top: 0.24rem;
+  width: 822px;
+  width: 8.22rem;
+}
+
+.personal-info .birth-items .birth-item {
+  float: left;
+  line-height: 44px;
+  line-height: 0.44rem;
+  width: 264px;
+  width: 2.64rem;
+  padding-right: 10px;
+  padding-right: 0.1rem;
+  font-size: 16px;
+  font-size: 0.16rem;
+  /* overflow: hidden; */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.personal-info .check-link {
+  display: block;
+  margin-top: 61px;
+  margin-top: 0.61rem;
+  margin-right: 45px;
+  margin-right: 0.45rem;
+  width: 91px;
+  width: 0.91rem;
+  height: 50px;
+  height: 0.5rem;
+  line-height: 50px;
+  line-height: 0.5rem;
+  padding-left: 59px;
+  padding-left: 0.59rem;
+  font-size: 18px;
+  font-size: 0.18rem;
+  color: #3d3576;
+  background: url("../css/images/myfiles/check_bg.png") center no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 个人记录 */
+.records-items {
+  margin: 17px 45px 0px;
+  margin: 0.17rem 0.45rem 0rem;
+}
+
+.records-title {
+  line-height: 50px;
+  line-height: 0.5rem;
+  height: 55px;
+  height: 0.55rem;
+  border-bottom: 1px solid #6054a3;
+}
+
+.records-title .records-title-left {
+  font-size: 22px;
+  font-size: 0.22rem;
+}
+
+.records-title .records-title-left > span {
+  margin-left: 15px;
+  margin-left: 0.15rem;
+}
+
+.records-title .records-arr {
+  margin-top: 9px;
+  margin-top: 0.09rem;
+  display: block;
+  width: 29px;
+  height: 46px;
+  cursor: pointer;
+  background: url("../css/images/myfiles/arr_down.png") center no-repeat;
+  background-size: 11px 6px;
+  background-size: 0.11rem 0.06rem;
+}
+
+.records-title .records-arr.active {
+  background-image: url("../css/images/myfiles/arr_up.png");
+}
+
+.colleges-items {
+  margin: 16px 265px 0px 58px;
+  margin: 0.16rem 2.65rem 0rem 0.58rem;
+}
+
+.colleges-items .colleges-item {
+  float: left;
+  width: 50%;
+  line-height: 44px;
+  line-height: 0.44rem;
+  font-size: 16px;
+  font-size: 0.16rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.colleges-items .colleges-item > span {
+  margin-left: 30px;
+  margin-left: 0.3rem;
+}
+
+.colleges-items .colleges-item:nth-child(3) > span {
+  margin-left: 46px;
+  margin-left: 0.46rem;
+}
+
+.records-content .resume-items {
+  position: relative;
+  margin-left: 72px;
+  margin-left: 0.72rem;
+  margin-top: 15px;
+  margin-top: 0.15rem;
+}
+
+.records-content .resume-items:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 18px;
+  top: 0.18rem;
+  bottom: 16px;
+  bottom: 0.16rem;
+  width: 1px;
+  border-left: 1px dashed #ccc3f9;
+}
+
+.records-content .resume-item {
+  position: relative;
+  padding-left: 25px;
+  padding-left: 0.25rem;
+  line-height: 44px;
+  line-height: 0.44rem;
+  font-size: 16px;
+  font-size: 0.16rem;
+}
+
+.records-content .resume-item:before {
+  position: absolute;
+  left: -7px;
+  left: -0.07rem;
+  top: 16px;
+  top: 0.16rem;
+  content: "";
+  width: 12px;
+  width: 0.12rem;
+  height: 12px;
+  height: 0.12rem;
+  border: 1px solid #c1b9f0;
+  background-color: #6b63a1;
+  border-radius: 50%;
+}
+
+.records-content .resume-item.active:before {
+  background-color: #ccc3f9;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+th {
+    height: .40rem;
+    line-height: .40rem;
+    background-color: #534a9e;
+    font-size: .14rem;
+   /*  color: #77cdff; */
+    text-align: center;
+}
+
+td {
+    font-size: .16rem;
+    text-align: center;
+}
+
+td>div {
+    margin-top: .02rem;
+    height: .40rem;
+    line-height: .40rem;
+    background-color: rgba(16, 43, 116, .4);
+    box-sizing: border-box;
+    padding: 0 .05rem;
+    text-align: center;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+tbody>tr:nth-of-type(2n)>td {
+    background-color: #534a9e;
+}

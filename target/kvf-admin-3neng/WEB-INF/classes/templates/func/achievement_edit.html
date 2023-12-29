@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="common/base::pagetitle"></title>
+    <link th:replace="common/base::static"/>
+    <style>
+        .layui-form-item .layui-input-inline {
+            float: left;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        .text-center{
+            text-align: center !important;
+        }
+    </style>
+</head>
+<body>
+<form class="layui-form" id="uform"  style="padding: 20px 30px 0 0;">
+    <div class="layui-form-item layui-hide">
+        <label class="layui-form-label">警员id</label>
+        <div class="layui-input-inline">
+            <input type="text" name="pId" th:value="${editInfo.pId}" placeholder="请输入警员id" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-hide">
+        <label class="layui-form-label">警员姓名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="pName" th:value="${editInfo.pName}" placeholder="请输入警员姓名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">奖励类型</label>
+        <div class="layui-input-inline">
+<!--            <input type="text" name="content" th:value="${editInfo.content}" placeholder="请输入奖励名称" autocomplete="off" class="layui-input">-->
+            <select name="content" lay-verify="required" lay-search="" lay-filter="content">
+                <option value="">请选择</option>
+                <option value="1" th:selected = "${editInfo.content} == 1">全国劳动模范（含享受相当劳模待遇）</option>
+                <option value="2" th:selected = "${editInfo.content} == 2">省劳动模范（含享受相当劳模待遇）</option>
+                <option value="3" th:selected = "${editInfo.content} == 3">市劳动模范（含享受相当劳模待遇）</option>
+                <option value="4" th:selected = "${editInfo.content} == 4">区劳动模范（含享受相当劳模待遇）</option>
+                <option value="5" th:selected = "${editInfo.content} == 5">一级英模</option>
+                <option value="6" th:selected = "${editInfo.content} == 6">二级英模</option>
+                <option value="7" th:selected = "${editInfo.content} == 7">全国特级优秀人民警察</option>
+                <option value="8" th:selected = "${editInfo.content} == 8">全国优秀人民警察</option>
+                <option value="9" th:selected = "${editInfo.content} == 9">全省优秀人民警察</option>
+                <option value="10" th:selected = "${editInfo.content} == 10">党中央国务院综合性工作表彰</option>
+                <option value="11" th:selected = "${editInfo.content} == 11">省委省政府综合性工作表彰</option>
+                <option value="12" th:selected = "${editInfo.content} == 12">党中央国务院单项或专项工作表彰</option>
+                <option value="13" th:selected = "${editInfo.content} == 13">省委省政府单项或专项工作表彰</option>
+                <option value="14" th:selected = "${editInfo.content} == 14">个人一等功（不含公务员奖励）</option>
+                <option value="15" th:selected = "${editInfo.content} == 15">任一级警长（警务技术一级主管）后，评为全市优秀人民警察</option>
+                <option value="16" th:selected = "${editInfo.content} == 16">任一级警长（警务技术一级主管）后，获得个人二等功</option>
+                <option value="17" th:selected = "${editInfo.content} == 17">任一级警长（警务技术一级主管）后，获得个人三等功</option>
+                <option value="18" th:selected = "${editInfo.content} == 18">任一级警长（警务技术一级主管）后，被市委市政府给与综合性工作表彰奖励</option>
+                <option value="19" th:selected = "${editInfo.content} == 19">任一级警长（警务技术一级主管）后，被市委市政府给与单项或专项工作表彰奖励</option>
+                <option value="20" th:selected = "${editInfo.content} == 20">任一级警长（警务技术一级主管）后，被区委区政府给与综合性工作表彰奖励、年度考核评为优秀公务员、评为优秀党员和党务工作者</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">获得时间</label>
+        <div class="layui-input-inline" style="width:200px">
+            <input type="text" name="ggTime" id="ggTime" th:value="${#strings.replace(editInfo.ggTime,'T',' ')}" placeholder="请输入获取时间" autocomplete="off" class="layui-input" lay-verify="required" >
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">获得年度</label>
+        <div class="layui-input-inline" style="width:200px">
+            <input type="text" name="ggYear" id="ggYear" th:value="${#strings.replace(editInfo.ggYear,'T',' ')}" placeholder="请输入获得年度" autocomplete="off" class="layui-input" lay-verify="required" >
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">奖励内容</label>
+        <div class="layui-input-inline">
+            <textarea name="content1" id="content1" placeholder="请输入奖励内容" class="layui-textarea">[[${editInfo.content1}]]</textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">附件</label>
+        <div  class="layui-input-inline">
+            <div th:if="${editInfo.id == null}" class="layui-upload">
+                <button type="button" class="layui-btn layui-btn-sm" id="upload1">
+                    <i class="layui-icon layui-icon-upload"></i>上传文件
+                </button>
+                <div class="layui-upload-list" style="max-width: 1000px;">
+                    <table class="layui-table">
+                        <colgroup>
+                            <col width="250">
+                            <col width="150">
+<!--                            <col width="200">-->
+                            <col width="150">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th class="text-center">文件名</th>
+                            <th class="text-center">大小</th>
+<!--                            <th class="text-center">上传进度</th>-->
+                            <th class="text-center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="demoList1"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div th:unless="${editInfo.id == null}" class="layui-upload-list" style="max-width: 1000px;">
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="300">
+                        <col width="150">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="text-center">文件名</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${editInfo.fileUrl.split(',')}">
+                        <td class="text-center" th:text="${T(com.kalvin.kvf.modules.util.TestUtils).getFileName(item)}"></td>
+                        <td class="text-center">
+                            <a th:href="${item}" target="_blank" class="layui-btn layui-btn-xs layui-btn-danger demo-delete">下载</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">分值</label>
+        <div class="layui-input-inline">
+            <input type="text" name="score" id="score" th:value="${editInfo.score}" placeholder="请输入分值" autocomplete="off" class="layui-input" readonly>
+        </div>
+    </div>
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">状态</label>-->
+<!--        <div class="layui-input-inline">-->
+<!--            <input type="text" name="status" th:value="${editInfo.status}" placeholder="请输入状态" autocomplete="off" class="layui-input">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">创建时间</label>-->
+<!--        <div class="layui-input-inline">-->
+<!--            <input type="text" name="createTime" id="createTime" th:value="${#strings.replace(editInfo.createTime,'T',' ')}" placeholder="请输入创建时间" autocomplete="off" class="layui-input">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">审核时间</label>-->
+<!--        <div class="layui-input-inline">-->
+<!--            <input type="text" name="updateTime" id="updateTime" th:value="${#strings.replace(editInfo.updateTime,'T',' ')}" placeholder="请输入审核时间" autocomplete="off" class="layui-input">-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="layui-form-item layui-hide">
+        <input type="button" lay-submit="" lay-filter="kFormSubmit" id="kFormSubmit">
+        <input type="text" name="id" th:value="${editInfo.id}" autocomplete="off" class="layui-input">
+    </div>
+</form>
+
+<script th:replace="common/base::context"></script>
+<script th:replace="common/base::mainjs"></script>
+<script>
+    /**
+     * 上传文件
+     * @param upload
+     * @param element
+     * @param index
+     */
+    function fileUpload(upload, element, index) {
+        var uploadListIns = upload.render({
+            elem: '#upload' + index //绑定元素
+            ,elemList: $('#demoList' + index) //列表元素对象
+            ,url: api.comm.fileUpload
+            ,data: {type: 'doc'}
+            ,accept: 'file'
+            ,multiple: true
+            ,number: 3
+            ,auto: true
+            ,choose: function(obj){
+                var that = this;
+                var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+                //读取本地文件
+                obj.preview(function(index, file, result){
+                    var tr = $(['<tr id="upload-'+ index +'">'
+                        ,'<td class="text-center">'+ file.name +'</td>'
+                        ,'<td class="text-center">'+ (file.size/1014).toFixed(1) +'kb</td>'
+                        // ,'<td class="text-center"><div class="layui-progress" lay-filter="progress-demo-'+ index +'"><div class="layui-progress-bar" lay-percent=""></div></div></td>'
+                        ,'<td class="text-center">'
+                        ,'<button class="layui-btn layui-btn-xs demo-reload layui-hide">重传</button>'
+                        ,'<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>'
+                        ,'</td>'
+                        ,'</tr>'].join(''));
+
+                    //单个重传
+                    tr.find('.demo-reload').on('click', function(){
+                        obj.upload(index, file);
+                    });
+
+                    //删除
+                    tr.find('.demo-delete').on('click', function(){
+                        delete files[index]; //删除对应的文件
+                        tr.remove();
+                        uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+                    });
+
+                    that.elemList.append(tr);
+                    element.render('progress'); //渲染新加的进度条组件
+                });
+            }
+            ,done: function(res, index, upload){ //成功的回调
+                var that = this;
+                if (res.code === 200) { //上传成功
+                    var tr = that.elemList.find('tr#upload-' + index)
+                        , tds = tr.children();
+                    // tds.eq(3).html(''); //清空操作
+                    tr.append('<input class="layui-input layui-hide" name="fileUrl" value="/common/static/' + res.data.path + '">');
+                    delete this.files[index]; //删除文件队列已经上传成功的文件
+                    return;
+                }
+                this.error(index, upload);
+            }
+            ,allDone: function(obj){ //多文件上传完毕后的状态回调
+                // console.log(obj)
+            }
+            ,error: function(index, upload){ //错误回调
+                var that = this;
+                var tr = that.elemList.find('tr#upload-'+ index)
+                    ,tds = tr.children();
+                tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+            }
+            ,progress: function(n, elem, e, index){ //注意：index 参数为 layui 2.6.6 新增
+                element.progress('progress-demo-'+ index, n + '%'); //执行进度条。n 即为返回的进度百分比
+            }
+        });
+    }
+
+    layui.use(['form', 'element', 'laydate', 'upload', 'table'], function () {
+        var $ = layui.$, form = layui.form, laydate = layui.laydate, upload = layui.upload, table = layui.table;
+        var element = layui.element;
+        fileUpload(upload, element, 1);
+
+        laydate.render({
+            elem: '#ggTime' // 指定元素
+            ,type: 'date'
+        });
+
+        laydate.render({
+            elem: '#ggYear' // 指定元素
+            ,type: 'year'
+        });
+
+        //监听样式选择下拉列表的点击事件
+        form.on('select(content)', function(data){
+            var v = data.value;
+            if(v === ''){
+                $('#score').val(0.0);
+            }else{
+                var arrScore = [15,9,6,3,15,9,8,6,3,12,6,6,3,4,1,2,1,2,1,0.3];
+                $('#score').val(arrScore[v-1]);
+            }
+        })
+
+        //监听提交
+        form.on('submit(kFormSubmit)', function(data){
+            var field = data.field; //获取提交的字段
+            var fields = $(data.form).serialize();
+
+            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+
+            if (field.fileUrl === undefined) {
+                layer.alert('请上传附件', {
+                    icon: 5,
+                    title: '提示'
+                });
+                return;
+            }
+
+            var url = field.id ? 'func/achievement/edit' : 'func/achievement/add';
+            //提交 Ajax 成功后，关闭当前弹层并重载表格
+            $.ajax({
+                type: req.type.post,
+                url: BASE_WEB + url,
+                data: fields,
+                dataType: 'json',
+                async: false,
+                success: function (r) {
+                    if (r.code === req.status.ok) {
+                        // 重载表格
+                        parent.layui.table.reload('kContentTable');
+                        parent.layer.close(index); //再执行关闭
+                    } else {
+                        kvfKit.errorMsg(r.msg);
+                    }
+                }
+            });
+
+        });
+    })
+</script>
+</body>
+</html>

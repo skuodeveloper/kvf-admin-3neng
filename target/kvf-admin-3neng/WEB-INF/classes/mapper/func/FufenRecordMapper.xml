@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kalvin.kvf.modules.func.mapper.FufenRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kalvin.kvf.modules.func.entity.FufenRecord">
+        <id column="id" property="id" />
+        <result column="police_id" property="policeId" />
+        <result column="zb_id" property="zbId" />
+        <result column="title" property="title" />
+        <result column="name" property="name" />
+        <result column="jifen" property="jifen" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       id, police_id, zb_id, title, name, jifen, create_time
+    </sql>
+
+    <select id="selectFufenRecordList" resultType="com.kalvin.kvf.modules.func.entity.FufenRecord">
+        select <include refid="Base_Column_List" /> from func_fufen_record
+        <trim prefix="where" prefixOverrides="and">
+            <if test="fufenRecord.policeId != null">
+                and police_id = #{fufenRecord.policeId}
+            </if>
+        </trim>
+        order by create_time desc
+    </select>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kalvin.kvf.modules.func.mapper.PromotionRecMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kalvin.kvf.modules.func.entity.PromotionRec">
+        <id column="id" property="id" />
+        <result column="userid" property="userid" />
+        <result column="username" property="username" />
+        <result column="pid" property="pid" />
+        <result column="title" property="title" />
+        <result column="score" property="score" />
+        <result column="content" property="content" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       id, userid, username, pid, title, content, score, status, create_time
+    </sql>
+
+    <select id="selectPromotionRecList" resultType="com.kalvin.kvf.modules.func.entity.PromotionRec">
+        select  id, userid, username, pid, title, content, score, status, create_time from func_promotion_rec
+        <trim prefix="where" prefixOverrides="and">
+            <if test="promotionRec.userid != null">
+                and userid = #{promotionRec.userid}
+            </if>
+            <if test="promotionRec.username != null and promotionRec.username != ''">
+                and username like concat(#{promotionRec.username}, "%")
+            </if>
+            <if test="promotionRec.title != null and promotionRec.title != ''">
+                and title like concat(#{promotionRec.title}, "%")
+            </if>
+            <if test="promotionRec.status != null">
+                and status = #{promotionRec.status}
+            </if>
+        </trim>
+        order by score desc
+    </select>
+
+    <select id="selectPromotionRecList1" resultType="com.kalvin.kvf.modules.func.entity.PromotionRec">
+        select  a.id, a.userid, a.username, a.pid, a.title, a.content, a.create_time, c.score from func_promotion_rec a
+        left join sys_user b on a.userid = b.id
+        left join func_police_info c on b.username = c.sfzh
+        <trim prefix="where" prefixOverrides="and">
+            <if test="promotionRec.userid != null">
+                and userid = #{promotionRec.userid}
+            </if>
+            <if test="promotionRec.username != null and promotionRec.username != ''">
+                and username like concat(#{promotionRec.username}, "%")
+            </if>
+            <if test="promotionRec.title != null and promotionRec.title != ''">
+                and title like concat(#{promotionRec.title}, "%")
+            </if>
+            <if test="promotionRec.status != null">
+                and status = #{promotionRec.status}
+            </if>
+        </trim>
+        order by score desc
+    </select>
+
+</mapper>

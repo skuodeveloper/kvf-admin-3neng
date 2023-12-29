@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="kvf:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>kvf</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="kvf-admin-3neng.war">
+      <element id="artifact" artifact-name="kvf:war exploded" />
+    </root>
+  </artifact>
+</component>

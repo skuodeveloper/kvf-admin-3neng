@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="common/base::pagetitle"></title>
+    <link th:replace="common/base::static"/>
+</head>
+<body>
+<div class="layui-form" style="padding: 20px 30px 0 0;">
+    <div class="layui-form-item layui-hide">
+        <label class="layui-form-label">民警id</label>
+        <div class="layui-input-inline">
+            <input type="text" name="pId" th:value="${editInfo.pId}" placeholder="请输入民警id" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-hide">
+        <label class="layui-form-label">民警姓名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="pName" th:value="${editInfo.pName}" placeholder="请输入民警姓名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">履历内容</label>
+        <div class="layui-input-inline">
+<!--            <input type="text" name="content" th:value="${editInfo.content}" placeholder="请输入内容" autocomplete="off" class="layui-input">-->
+            <select name="content" lay-verify="required" lay-search="">
+                <option value="">请选择</option>
+                <option value="0" th:selected = "${editInfo.content} == 0">享受正科级待遇</option>
+                <option value="1" th:selected = "${editInfo.content} == 1">担任副科长级及以上干部（区管干部）</option>
+                <option value="2" th:selected = "${editInfo.content} == 2">担任中层正职</option>
+                <option value="3" th:selected = "${editInfo.content} == 3">担任中层副职</option>
+                <option value="4" th:selected = "${editInfo.content} == 4">任一级警长、警务技术一级主管后且目前仍在派出所工作</option>
+                <option value="5" th:selected = "${editInfo.content} == 5">任一级警长、警务技术一级主管后且目前仍在交警路面中队工作</option>
+                <option value="6" th:selected = "${editInfo.content} == 6">任一级警长、警务技术一级主管后且目前仍在交警事故中队工作</option>
+                <option value="7" th:selected = "${editInfo.content} == 7">任一级警长、警务技术一级主管后且目前仍在责任区刑侦队工作</option>
+                <option value="8" th:selected = "${editInfo.content} == 8">任一级警长、警务技术一级主管后且目前仍在刑科室工作</option>
+                <option value="9" th:selected = "${editInfo.content} == 9">任一级警长、警务技术一级主管后且目前仍在拘留所工作</option>
+                <option value="10" th:selected = "${editInfo.content} == 10">获得警务技术职务副高级任职资格</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">开始年月</label>
+        <div class="layui-input-inline">
+            <input type="text" name="tStart" th:value="${editInfo.tStart}" placeholder="请输入开始年月(例199005)" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">结束年月</label>
+        <div class="layui-input-inline">
+            <input type="text" name="tEnd" th:value="${editInfo.tEnd}" placeholder="请输入结束年月(例199005)" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">积分</label>
+        <div class="layui-input-inline">
+            <input type="text" name="score" th:value="${editInfo.score}" placeholder="请输入积分" autocomplete="off" class="layui-input" readonly>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-hide">
+        <input type="button" lay-submit="" lay-filter="kFormSubmit" id="kFormSubmit">
+        <input type="text" name="id" th:value="${editInfo.id}" autocomplete="off" class="layui-input">
+    </div>
+</div>
+
+<script th:replace="common/base::context"></script>
+<script th:replace="common/base::mainjs"></script>
+<script>
+    layui.use(['form', 'laydate'], function () {
+        var $ = layui.$, form = layui.form, laydate = layui.laydate;
+
+        //监听提交
+        form.on('submit(kFormSubmit)', function(data){
+            var field = data.field; //获取提交的字段
+            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+log(field);
+            var url = field.id ? 'func/history/edit' : 'func/history/add';
+            //提交 Ajax 成功后，关闭当前弹层并重载表格
+            $.ajax({
+                type: req.type.post,
+                url: BASE_WEB + url,
+                data: field,
+                async: false,
+                success: function (r) {
+                    if (r.code === req.status.ok) {
+                        // 重载表格
+                        parent.layui.table.reload('kContentTable');
+                        parent.layer.close(index); //再执行关闭
+                    } else {
+                        kvfKit.errorMsg(r.msg);
+                    }
+                }
+            });
+
+        });
+    })
+</script>
+</body>
+</html>

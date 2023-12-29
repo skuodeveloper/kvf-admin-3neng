@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kalvin.kvf.modules.func.mapper.PromotionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kalvin.kvf.modules.func.entity.Promotion">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="content" property="content" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       id, title, content, status, create_time
+    </sql>
+
+    <select id="selectPromotionList" resultType="com.kalvin.kvf.modules.func.entity.Promotion">
+        select <include refid="Base_Column_List" /> from func_promotion
+        <trim prefix="where" prefixOverrides="and">
+            <if test="promotion.title != null">
+                and title like concat("%", #{promotion.title}, "%")
+            </if>
+        </trim>
+    </select>
+
+</mapper>

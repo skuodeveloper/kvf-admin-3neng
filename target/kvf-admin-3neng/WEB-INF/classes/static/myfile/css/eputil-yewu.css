@@ -1,0 +1,94 @@
+/* 提供css自定义修改滚动条的宽度，项目组提出的要求 */
+::-webkit-scrollbar {
+	width: 8px!important;;
+	height: 8px!important;
+}
+
+/* 全局tab下面padding取消 */
+.mini-tabs-bodys {
+	padding: 0;
+}
+
+/*表格的选择布局开始*/
+.grid-selector {
+	position: absolute;
+	right: 0;
+	height: 100%;
+	width: 350px;
+	border-left: 1px solid #3d3675;
+}
+
+.grid-selector-td {
+	overflow: hidden;
+	height: 32px;
+	height: calc(.3rem + 2px);
+	padding: 8px 16px;
+	border-bottom: 1px solid #3d3675;
+}
+
+.grid-selector-body {
+	position: absolute;
+	top: calc(.3rem + 2px + 1px + 8px * 2);
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	padding: 8px;
+}
+
+.grid-selector-li {
+	position: absolute;
+	top: calc(.3rem + 2px);
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin-top: -37px;
+	overflow: hidden;
+	padding: 10px;
+	border-radius: 4px;
+	border-top-left-radius: 0;
+	/*background: #2e2766;*/
+	z-index: 4;
+}
+
+.grid-selector-buttons {
+	position: relative;
+	line-height: 30px;
+	line-height: .3rem;
+	height: 30px;
+	height: .3rem;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid #ebebeb;
+	margin-bottom: 5px;
+}
+
+.grid-selector-buttons {
+	position: relative;
+	line-height: 30px;
+	line-height: .3rem;
+	height: 30px;
+	height: .3rem;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid #ebebeb;
+	margin-bottom: 5px;
+}
+
+.grid-selector-selection {
+	cursor: auto;
+}
+
+/*表格的选择布局结束*/
+
+/*mini-textarea间距调整*/
+body .mini-textarea {
+	height: 65px;
+	width: 100%;
+}
+html body ::-webkit-scrollbar {
+	width: 12px!important;
+	height: 12px!important;
+}
+
+html body ::-webkit-scrollbar-thumb {
+	border-width: 0!important;
+}

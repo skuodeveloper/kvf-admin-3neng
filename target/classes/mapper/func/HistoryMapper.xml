@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kalvin.kvf.modules.func.mapper.HistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kalvin.kvf.modules.func.entity.History">
+        <id column="id" property="id" />
+        <result column="p_id" property="pId" />
+        <result column="p_name" property="pName" />
+        <result column="content" property="content" />
+        <result column="t_start" property="tStart" />
+        <result column="t_end" property="tEnd" />
+        <result column="score" property="score" />
+        <result column="remark" property="remark" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       id, p_id, p_name, content, t_start, t_end, score ,remark, create_time
+    </sql>
+
+    <select id="selectHistoryList" resultType="com.kalvin.kvf.modules.func.entity.History">
+        select <include refid="Base_Column_List" /> from func_history
+        <trim prefix="where" prefixOverrides="and">
+            <if test="history.pId != null and history.pId != ''">
+                and p_id = #{history.pId}
+            </if>
+            <if test="history.pName != null and history.pName != ''">
+                and p_name like concat(#{history.pName}, "%")
+            </if>
+            <if test="history.content != null and history.content != ''">
+                and content like concat(#{history.content}, "%")
+            </if>
+        </trim>
+        order by t_start asc
+    </select>
+
+</mapper>

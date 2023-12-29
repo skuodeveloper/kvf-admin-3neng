@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- saved from url=(0250)http://41.190.19.165:8085/soazs/frame/pages/login/login?response_type=code&redirect_uri=http%3A%2F%2F41.190.19.165%3A8080%2Fzjzg%2Fframe%2Fpages%2Flogin%2Flogin&state=3fa9a76a-7286-4466-825d-189cbfa2d3f9&client_id=70f673bb-41da-49b1-a85f-07e19accdd69 -->
+<html lang="zh-CN" class="win7" style="font-size: 100px;" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <title>登录</title>
+    <style>
+        .page-loading {
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff
+        }
+
+        .infoError.error {
+            margin-bottom: 5px;
+        }
+
+        .logo {
+            margin-left: 2.5rem;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{/static/login/css/action.css}">
+    <link rel="stylesheet" th:href="@{/static/login/css/modicons.min.css}">
+    <link id="common-skin" th:href="@{/static/login/css/skin.css}">
+
+    <link rel="stylesheet" th:href="@{/static/login/css/common.css}">
+    <link rel="stylesheet" th:href="@{/static/login/css/cube.css}">
+    <link rel="stylesheet" th:href="@{/static/login/css/index.css}">
+
+    <link rel="stylesheet" th:href="@{/static/login/css/content.css}">
+    <link rel="stylesheet" th:href="@{/static/login/css/common(1).css}">
+    <link rel="stylesheet" th:href="@{/static/login/css/layer.css}">
+</head>
+
+<body style="font-size: 14px;">
+
+<img th:src="@{/static/login/image/1.jpg}" alt="" class="htmlbg">
+<div class="container clearfix">
+    <div class="logo" id="logo-img" style="font-size: 60px;    color: white;    font-family: 宋体;    font-weight: bold;">
+        警员职务晋升申报系统
+    </div>
+</div>
+<div class="container clearfix largebox" style="top: 360px;    left: 22%;">
+    <!-- 登录区域 -->
+    <div class="loginbox r NOIE" id="cubeTransition" style="margin: 1.0rem 3.0rem 0 0;height:3.5rem">
+        <!-- 账号登录 -->
+        <div class="example" style="display: block;">
+            <div class="inner" id="brainLogin" style="height:3.3rem">
+                <!-- <div class="code" id="code" onclick="createqr()"></div> -->
+                <div class="keepOut"></div>
+                <div class="clearfix innerbox" id="tabview">
+                    <div class="head" data-role="head">
+
+                        <span data-role="tab" data-target="account" class="option active" id="ID">用户登录</span>
+                    </div>
+                    <div class="tabody" data-role="body">
+                        <!-- 账号登录 -->
+                        <div class="tabCon" data-role="tab-content" data-id="account">
+                            <form id="accountLogin" novalidate="novalidate">
+                                <div class="infoError"></div>
+                                <input id="username" type="text" autocomplete="off" class="input user"
+                                       placeholder="请输入用户身份证号"
+                                       style="background-image: url(/static/login/image/user.png);">
+                                <div class="relative">
+                                    <input id="password" type="password" class="input mt15 password" autocomplete="off"
+                                           onpaste="return false" placeholder="请输入密码"
+                                           style="background-image: url(/static/login/image/pwd.png);">
+                                </div>
+                            </form>
+                            <a id="login_btn" href="javascript:;" class="submit" onclick="login()">登录</a>
+                            <a id="pkiLoginBtn" href="javascript:;" class="submit" onclick="pkilogin()">PKI登录</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:replace="common/base::context"></script>
+<script th:replace="common/base::mainjs"></script>
+<script>
+    function pkilogin() {
+        window.location.href = 'https://' + top.location.hostname + ':8443/pki';
+            // window.location.href = 'https://10.120.146.226:8443/pki';
+    }
+    function login() {
+        let username = $('#username').val();
+        let password = $('#password').val();
+
+        // if(username !== 'admin'){
+        //     kvfKit.unhappyMsg('请输入管理员账号', true);
+        // }else {
+            //请求登入接口
+            kvfKit.aPost(api.login, {'username': username, 'password': password}, function (r) {
+                if (r.code === req.status.ok) {
+                    // 登入成功的提示与跳转
+                    layer.msg('登录成功', {
+                        icon: 1
+                        , time: 500
+                    }, function () {
+                        // 解决session过期在iframe页面登录后，主页嵌套在iframe里面的问题
+                        if (window !== top) {
+                            top.location.href = api.homeView;
+                        } else {
+                            location.href = api.homeView; // kvf-admin首页
+                        }
+                    });
+                } else {
+                    kvfKit.unhappyMsg(r.msg, true);
+                }
+            })
+        // }
+    }
+</script>
+</body>
+</html>

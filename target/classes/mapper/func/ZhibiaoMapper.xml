@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kalvin.kvf.modules.func.mapper.ZhibiaoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kalvin.kvf.modules.func.entity.Zhibiao">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="dept" property="dept" />
+        <result column="fromt" property="fromt" />
+        <result column="property" property="property" />
+        <result column="type" property="type" />
+        <result column="period" property="period" />
+        <result column="scope" property="scope" />
+        <result column="level_down" property="levelDown" />
+        <result column="level_up" property="levelUp" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       id, name, dept, fromt, property, type, period, scope, level_down, level_up, create_time
+    </sql>
+
+    <select id="selectZhibiaoList" resultType="com.kalvin.kvf.modules.func.entity.Zhibiao">
+        select <include refid="Base_Column_List" /> from func_zhibiao
+        <trim prefix="where" prefixOverrides="and">
+            <if test="zhibiao.name != null and zhibiao.name != ''">
+                and name like concat("%", #{zhibiao.name}, "%")
+            </if>
+            <if test="zhibiao.dept != null and zhibiao.dept != ''">
+                and dept like concat("%", #{zhibiao.dept}, "%")
+            </if>
+            <if test="zhibiao.fromt != null and zhibiao.fromt != ''">
+                and fromt like concat("%", #{zhibiao.fromt}, "%")
+            </if>
+            <if test="zhibiao.property != null">
+                and property = #{zhibiao.property}
+            </if>
+            <if test="zhibiao.type != null">
+                and type = #{zhibiao.type}
+            </if>
+        </trim>
+        order by create_time desc
+    </select>
+
+</mapper>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title th:replace="common/base::pagetitle"></title>
+    <link th:replace="common/base::static"/>
+
+    <style>
+        .success {
+            background-color: #dff0d8;
+        }
+
+        .selected {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body style="background-color: #f2f2f2;">
+
+<div id="kPage" class="layui-fluid" style="padding: 0">
+    <div class="layui-row">
+        <div class="layui-col-md12" id="kMainContentCol">
+            <div class="layui-fluid kvf-fluid-padding15">
+                <div>
+                    <div class="layui-form layui-card-header kvf-card-header-auto">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">指标名称</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="name" placeholder="请输入指标名称" autocomplete="off"
+                                           class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">报送单位</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="dept" placeholder="请输入报送单位" autocomplete="off"
+                                           class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">指标出处</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="fromt" placeholder="请输入指标出处" autocomplete="off"
+                                           class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-inline" style="margin-right: 30px;">
+                                <button class="layui-btn " lay-submit="" lay-filter="kTableSearchFilter">
+                                    <i class="layui-icon layui-icon-search"></i>
+                                </button>
+                            </div>
+
+                            <div class="layui-inline">
+                                <button class="layui-btn layui-btn-danger" lay-submit=""
+                                        lay-filter="kTableSubmitFilter">赋分
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:flex; margin-top: 20px;">
+                    <div class="layui-card" style="width: 1210px">
+                        <div class="layui-card-body">
+                            <table id="kContentTable" lay-filter="kContentTable"></table>
+                        </div>
+                    </div>
+                    <div class="layui-card" style="width: 471px; margin-left: 20px; margin-bottom: 15px;">
+                        <div class="layui-card-body">
+                            <table id="kContentTable1" lay-filter="kContentTable1"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:replace="common/base::context"></script>
+<script th:replace="common/base::mainjs"></script>
+
+<!--表格列格式化模板 start-->
+<script type="text/html" id="propertyTpl">
+    {{#  if(d.property == 1){ }}
+    <span>平常时间</span>
+    {{#  } else if(d.property == 2) { }}
+    <span>关键时刻</span>
+    {{#  } else { }}
+    <span>危机时刻</span>
+    {{# } }}
+</script>
+
+<script type="text/html" id="typeTpl">
+    {{#  if(d.type == 1){ }}
+    <span>个性指标</span>
+    {{#  } else if(d.type == 2) { }}
+    <span>共性指标</span>
+    {{#  } else { }}
+    <span>其他</span>
+    {{# } }}
+</script>
+
+<script type="text/html" id="scopeTpl">
+    {{#  if(d.property == 1){ }}
+    <span>民警个体</span>
+    {{#  } else if(d.property == 2) { }}
+    <span>部门</span>
+    {{#  } else { }}
+    <span>其他</span>
+    {{# } }}
+</script>
+<!--表格列格式化模板 end-->
+
+<script type="text/javascript" th:inline="javascript">
+    layui.use(['element', 'form', 'layer', 'table', 'laydate'], function () {
+        var elemet = layui.element, form = layui.form, layer = layui.layer, table = layui.table;
+        var tableId = 'kContentTable';
+        var tableId1 = 'kContentTable1';
+
+        var data = {};
+        data.policeId = [[${policeId}]];
+
+        // 实例化table
+        var tableIns = table.render($.extend(config.layui.table, {
+            elem: '#' + tableId
+            , url: BASE_WEB + 'func/zhibiao/list/data' // 数据接口
+            , cols: [[ //表头
+                // {type: 'checkbox', fixed: 'left'}
+                {field: 'id', title: 'id', width: 130, align: 'center', hide: true}
+                , {field: 'name', title: '指标名称', width: 130, align: 'center'}
+                , {field: 'dept', title: '报送单位', width: 130, align: 'center'}
+                , {field: 'fromt', title: '指标出处', width: 130, align: 'center'}
+                , {field: 'property', title: '指标属性', width: 130, align: 'center', templet: '#propertyTpl'}
+                , {field: 'type', title: '项目类别', width: 130, align: 'center', templet: '#typeTpl'}
+                , {field: 'period', title: '项目周期', width: 130, align: 'center'}
+                , {field: 'scope', title: '适用层面', width: 130, align: 'center', templet: '#scopeTpl'}
+                , {field: 'levelDown', title: '起评标准', width: 130, align: 'center'}
+                , {field: 'levelUp', title: '封顶要求', width: 130, align: 'center'}
+            ]]
+        }));
+
+        // 实例化table
+        var tableIns1 = table.render($.extend(config.layui.table, {
+            elem: '#' + tableId1
+            , url: BASE_WEB + 'func/zhibiaoRule/list/data' // 数据接口
+            , where: {zbId: -1}
+            , cols: [[ //表头
+                // {type: 'checkbox', fixed: 'left'}
+                // ,{field: 'zbId', title: '指标id', width: 130}
+                {field: 'title', title: '标题', width: 178, align: 'center'}
+                , {field: 'name', title: '等级', width: 178, align: 'center'}
+                , {field: 'jifen', title: '积分', width: 80, align: 'center'}
+            ]]
+        }));
+
+        // 监听查询
+        form.on('submit(kTableSearchFilter)', function (obj) {
+            renderTableData(obj.field);
+            tableIns1.reload({
+                where: {zbId: -1},
+                page: {curr: 1}
+            });
+
+            return false;
+        });
+
+        table.on('row(kContentTable)', function (obj) {
+            $('.success').removeClass('success'); //去除之前选中的行的，选中样式
+            $(obj.tr).addClass('success'); //添加当前选中的 success样式用于区别
+
+            data.zbId = obj.data.id;
+
+            tableIns1.reload({
+                where: {zbId: data.zbId},
+                page: {curr: 1}
+            });
+        });
+
+        table.on('row(kContentTable1)', function (obj) {
+            $('.selected').removeClass('selected'); //去除之前选中的行的，选中样式
+            $(obj.tr).addClass('selected'); //添加当前选中的 success样式用于区别
+
+            data.title = obj.data.title;
+            data.name = obj.data.name;
+            data.jifen = obj.data.jifen;
+        });
+
+        // 监听提交
+        form.on('submit(kTableSubmitFilter)', function (obj) {
+            if ($('.selected').length === 0) {
+                kvfKit.warningMsg('请选择赋分规则');
+            } else {
+                // 提交 Ajax 成功后，关闭当前弹层并重载表格
+                $.ajax({
+                    type: req.type.post,
+                    url: BASE_WEB + 'func/fufenRecord/add',
+                    data: data,
+                    async: false,
+                    success: function (r) {
+                        if (r.code === req.status.ok) {
+                            //刷新父窗口
+                            window.opener.renderTableData();
+                            window.close();
+                        } else {
+                            kvfKit.errorMsg(r.msg);
+                        }
+                    }
+                });
+            }
+        });
+
+        function renderTableData(params) {
+            params = params ? params : {};
+
+            tableIns.reload({
+                where: params,
+                page: {curr: 1}
+            });
+        }
+
+        // 绑定监听回车事件
+        kvfKit.bindEnterEventForLayuiForm();
+    });
+
+
+</script>
+
+</body>
+</html>

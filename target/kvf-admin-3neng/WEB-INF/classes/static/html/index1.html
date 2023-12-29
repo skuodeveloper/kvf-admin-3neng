@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>最红大脑</title>
+
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/vue.min.js" type="text/javascript"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            /*height: 100%;*/
+        }
+
+        li {
+            list-style: none;
+            height: 45px;
+            line-height: 45px;
+        }
+
+        .title {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid bisque;
+            border-radius: 8px;
+            background-color: #1E90FF;
+            position: relative;
+            top: 5px;
+            margin: 0px auto;
+            color: white;
+        }
+    </style>
+</head>
+<body style="background-color: bisque">
+<div id="news" style="margin: 10px; height: 96%;border-radius: 8px">
+    <div style="width:100%;text-align: center;height: 40px;">
+        <p class="title">技服中心最红大脑今日挑战</p></div>
+    <ul style="margin-top: 20px;border-radius: 8px;background-color: white;">
+        <li v-for="(item,index) in wxRank" @click="goto(item.userid)">
+            <div style="float: left; width: 20%;height:45px;text-align: right;">{{index + 1}}</div>
+            <div style="float: left; width: 50%;height:45px;text-align: center;font-weight: 600">
+                <img style="width: 32px; border-radius: 50%; margin: 7px;" :src=item.avatar>
+                <span style="position: absolute;font-size: 14px">{{item.realname}}</span>
+            </div>
+            <div v-if="item.todayCnt === 0"  style="float: left; width: 30%;height:45px;text-align: center;color: red">未挑战</div>
+            <div v-else style="float: left; width: 30%;height:45px;text-align: center;color: green">已挑战</div>
+        </li>
+    </ul>
+</div>
+<script>
+    var news = new Vue({
+        el: '#news',
+        data: {
+            wxRank: []
+        }
+    });
+
+    getUserrank();
+
+    function getUserrank() {
+        $.ajax({
+            url: "https://dangshi.nhgaj.com/func/userTab/getUserList",
+            // url: "http://localhost:5566/func/userTab/getUserList",
+            type: "get",
+            dataType: "json",
+            success: function (r) {
+                news.wxRank = r.data;
+            },
+            error: function (data) {
+                alert(JSON.stringify(data));
+            }
+        });
+    }
+
+    /**
+     * 跳转到详情
+     * @param userid
+     */
+    function goto(userid){
+        window.location.href = 'userundo.html?userid=' + userid;
+    }
+</script>
+</body>
+</html>

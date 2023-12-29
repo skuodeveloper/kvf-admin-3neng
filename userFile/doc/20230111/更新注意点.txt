@@ -1,0 +1,10 @@
+#ÍâÍøÔ¶³Ì
+nhgayf
+Nhga@#0573
+
+#VPN±¤ÀÝ»ú
+1234zxcv@NHGA
+>*^8i79iqJLF
+
+
+mvn install:install-file -Dfile=D:\java\xline\src\lib\XlineSdk_v1.0.3.jar -DgroupId=com.nhga -DartifactId=nhga-xline-sdk -Dversion=1.0 -Dpackaging=jar

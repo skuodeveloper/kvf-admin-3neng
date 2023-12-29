@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title th:replace="common/base::pagetitle"></title>
+    <link th:replace="common/base::static"/>
+
+    <style>
+        .libname {
+            border-bottom: 2px solid;
+            color: blue;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body style="background-color: #f2f2f2;">
+
+<div id="kPage" class="layui-fluid" style="padding: 0">
+    <div class="layui-row">
+        <div class="layui-col-md12" id="kMainContentCol">
+            <div class="layui-fluid kvf-fluid-padding15">
+                <div class="layui-card">
+                    <form>
+                        <div class="layui-form layui-card-header kvf-card-header-auto">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓名</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="xm" placeholder="请输入姓名" autocomplete="off"
+                                               class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">身份证号</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="sfzh" placeholder="请输入身份证号" autocomplete="off"
+                                               class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">电话号码</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="tel" placeholder="请输入电话号码" autocomplete="off"
+                                               class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <button class="layui-btn " lay-submit="" lay-filter="kTableSearchFilter">
+                                        <i class="layui-icon layui-icon-search"></i>
+                                    </button>
+                                    <button class="layui-btn " type="reset" data-event="refresh">
+                                        <i class="layui-icon layui-icon-refresh-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="layui-card-body">
+                        <table id="kContentTable" lay-filter="kContentTable"></table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:replace="common/base::context"></script>
+<script th:replace="common/base::mainjs"></script>
+
+<!--头部工具栏模板-->
+<script type="text/html" id="headToolbarTpl">
+    {{#  if([[${user == 'admin'}]]){ }}
+    <button class="layui-btn layui-btn-sm " lay-event="add">添加</button>
+    <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="batchdel">批量删除</button>
+    <button type="button" class="layui-btn layui-btn-sm" id="LAY-excel-upload">
+        <i class="layui-icon layui-icon-upload"></i>人员导入
+    </button>
+    {{# }}}
+</script>
+
+<!--表格行工具栏模板-->
+<script type="text/html" id="rowToolbarTpl">
+{{#  if([[${user != 'admin'}]]){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-test" lay-event="dangan"><i
+            class="layui-icon layui-icon-table"></i>档案</a>
+{{# }}}
+{{#  if([[${user == 'admin'}]]){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-checked" lay-event="hist">
+        <i class="layui-icon layui-icon-table"></i>履历</a>
+{{# }}}
+{{#  if([[${user == 'admin'}]]){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="achieve">
+        <i class="layui-icon layui-icon-table"></i>奖励</a>
+    <a class="layui-btn layui-btn-xs layui-btn-test" lay-event="test">
+        <i class="layui-icon layui-icon-form"></i>考核</a>
+    <a class="layui-btn layui-btn-xs layui-btn-warn" lay-event="punish">
+        <i class="layui-icon layui-icon-table"></i>惩戒</a>
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="edit">
+        <i class="layui-icon layui-icon-edit"></i>编辑</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">
+        <i class="layui-icon layui-icon-delete"></i>删除</a>
+{{# }}}
+</script>
+
+<!--表格列格式化模板 start-->
+<script type="text/html" id="xmTpl">
+    {{# return '<span class="libname" lay-event="jump" style="cursor: pointer;">' + d.xm + '</span>'; }}
+</script>
+<script type="text/html" id="xbTpl">
+    {{#  if(d.xb == 1){ }}
+    <span class="layui-badge layui-bg-blue">男</span>
+    {{#  } else if(d.xb == 2) { }}
+    <span class="layui-badge">女</span>
+    {{#  } else { }}
+    <span class="layui-badge layui-bg-gray">未知</span>
+    {{# } }}
+</script>
+<script type="text/html" id="jwxlTpl">
+    {{#  if(d.jwxl == 1){ }}
+    <span class="layui-badge layui-bg-blue">执法勤务</span>
+    {{#  } else if(d.jwxl == 2) { }}
+    <span class="layui-badge">警务技术</span>
+    {{# } }}
+</script>
+<script type="text/html" id="passTpl">
+    {{#  if(d.pass == 1){ }}
+    <span class="layui-badge layui-bg-blue">未审核</span>
+    {{#  } else if(d.pass == 2) { }}
+    <span class="layui-badge layui-bg-orange">已通过</span>
+    {{#  } else if(d.pass == 3) { }}
+    <span class="layui-badge layui-bg-red">未通过</span>
+    {{#  } else { }}
+    <span class="layui-badge layui-bg-gray">未处理</span>
+    {{# } }}
+</script>
+<!--表格列格式化模板 end-->
+
+<script type="text/javascript" th:inline="javascript">
+    layui.config({
+        base: BASE_WEB + 'static/plugins/layui_exts/'
+    }).extend({
+        excel: 'excel'
+    });
+
+    layui.use(['element', 'form', 'layer', 'table', 'laytpl', 'upload', 'excel', 'code'], function () {
+        var laytpl = layui.laytpl, elemet = layui.element, form = layui.form, layer = layui.layer, table = layui.table
+            , upload = layui.upload, excel = layui.excel;
+
+        var tableId = 'kContentTable';
+        var area = ['449px', '95%'];
+
+        // 实例化table
+        var tableIns = table.render($.extend(config.layui.table, {
+            elem: '#' + tableId
+            , url: BASE_WEB + 'func/policeInfo/list/data' // 数据接口
+            , toolbar: '#headToolbarTpl'
+            , cols: [[ //表头
+                {type: 'checkbox', fixed: 'left'}
+                , {field: 'xm', title: '姓名', width: 130, align: 'center', templet: '#xmTpl'}
+                , {field: 'sfzh', title: '身份证号', width: 180, align: 'center'}
+                // , {field: 'tel', title: '电话号码', width: 130, align: 'center'}
+                , {field: 'dept', title: '所属部门', width: 150, align: 'center'}
+                , {field: 'xb', title: '性别', width: 80, templet: '#xbTpl', align: 'center'}
+                // ,{field: 'csny', title: '出生年月', width: 130, align: 'center'}
+                , {field: 'cjgzny', title: '参加工作年月', width: 130, align: 'center'}
+                // ,{field: 'cjgany', title: '参加公安年月', width: 130, align: 'center'}
+                , {field: 'yjny', title: '任一级(警长或技术主管)年月', width: 130, align: 'center'}
+                , {field: 'jwxl', title: '警务序列', width: 100, templet: '#jwxlTpl', align: 'center'}
+                , {field: 'score', title: '总积分', width: 80, align: 'center'}
+                , {field: 'createTime', title: '创建时间', width: 180, align: 'center'}
+                , {field: '', title: '操作', width: 420, fixed: 'right', templet: '#rowToolbarTpl', align: 'center'}
+            ]],
+            done: function () {
+                //upload上传实例
+                upload.render({
+                    elem: '#LAY-excel-upload' //绑定元素
+                    // , url: api.comm.fileUpload //上传接口（PS:这里不用传递整个 excel）
+                    // , data: {type: 'avatar'}
+                    , auto: true //选择文件后不自动上传
+                    , exts: 'xls|excel|xlsx' //导入表格
+                    , accept: 'file'
+                    , before: function (obj) {
+                        console.log('before');
+                        // layer.load(); //上传loading
+                    }
+                    , done: function (r) {
+                        console.log('done');
+                        //关闭所有弹出层
+                        // layer.closeAll();
+                    }
+                    , choose: function (obj) {// 选择文件回调
+                        var files = obj.pushFile()
+                        var fileArr = Object.values(files)// 注意这里的数据需要是数组，所以需要转换一下
+
+                        // 用完就清理掉，避免多次选中相同文件时出现问题
+                        for (var index in files) {
+                            if (files.hasOwnProperty(index)) {
+                                delete files[index]
+                            }
+                        }
+                        $('#LAY-excel-upload').next().val('');
+
+                        uploadExcel(fileArr) // 如果只需要最新选择的文件，可以这样写： uploadExcel([files.pop()])
+                    }
+                    , error: function () {
+                        setTimeout(function () {
+                            layer.msg("上传失败！", {
+                                icon: 1
+                            });
+                        })
+                    }
+                });
+            }
+        }));
+
+        /**
+         * 上传excel的处理函数，传入文件对象数组
+         * @param  {FileList} files [description]
+         * @return {[type]}       [description]
+         */
+        function uploadExcel(files) {
+            try {
+                excel.importExcel(files, {
+                    // 可以在读取数据的同时梳理数据
+                    /*fields: {
+                      'id': 'A'
+                      , 'username': 'B'
+                      , 'experience': 'C'
+                      , 'sex': 'D'
+                      , 'score': 'E'
+                      , 'city': 'F'
+                      , 'classify': 'G'
+                      , 'wealth': 'H'
+                      , 'sign': 'I'
+                    }*/
+                }, function (data, book) {
+                    // data: {1: {sheet1: [{id: 1, name: 2}, {...}]}}// 工作表的数据对象
+                    // book: {1: {Sheets: {}, Props: {}, ....}} // 工作表的整个原生对象，https://github.com/SheetJS/js-xlsx#workbook-object
+                    // 也可以全部读取出来再进行数据梳理
+                    /*        data = excel.filterImportData(data, {
+                              'id': 'A'
+                              , 'username': 'B'
+                              , 'experience': 'C'
+                              , 'sex': 'D'
+                              , 'score': 'E'
+                              , 'city': 'F'
+                              , 'classify': 'G'
+                              , 'wealth': 'H'
+                              , 'sign': 'I'
+                            })*/
+                    // 如果不需要展示直接上传，可以再次 $.ajax() 将JSON数据通过 JSON.stringify() 处理后传递到后端即可
+                    /**
+                     * 2019-06-21 JeffreyWang 应群友需求，加一个单元格合并还原转换
+                     * 思路：
+                     * 1. 渲染时为每个cell加上唯一的ID，demo里边采用 table-export-文件索引-sheet名称-行索引-列索引
+                     * 2. 根据 book[文件索引].Sheets[sheet名称]['!merge'] 参数，取左上角元素设置 colspan 以及 rowspan，并删除其他元素
+                     */
+                    layer.open({
+                        title: '文件转换结果'
+                        , area: ['1200px', '800px']
+                        , tipsMore: true
+                        , content: laytpl($('#LAY-excel-export-ans').html()).render({data: data, files: files})
+                        , yes: function (index, layero) {
+                            //执行 Ajax 后重载
+                            $.ajax({
+                                type: req.type.post,
+                                url: BASE_WEB + 'func/policeInfo/upload/',
+                                dataType: "json",
+                                // contentType: "application/x-www-form-urlencoded",
+                                // data: {
+                                //     jsonStr:JSON.stringify(data[0].Sheet1)
+                                // },
+                                contentType: "application/json;charset=UTF-8",
+                                data: JSON.stringify(data[0].Sheet1),
+                                async: false,
+                                success: function (r) {
+                                    if (r.code === req.status.ok) {
+                                        table.reload(tableId);
+                                        kvfKit.sucessMsg('人员数据上传成功！');
+                                    } else {
+                                        kvfKit.errorMsg(r.msg);
+                                    }
+                                }
+                            });
+
+                            layer.close(index);
+                            table.reload(tableId);
+                        }
+                        , success: function () {
+                            elemet.render('tab')
+                            layui.code({})
+                        }
+                    })
+                })
+            } catch (e) {
+                layer.alert(e.message)
+            }
+        }
+
+        // 监听表格头部事件
+        table.on('toolbar(' + tableId + ')', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            var checkData = checkStatus.data; // 得到选中的数据
+            switch (obj.event) {
+                case 'add':
+                    layer.open({
+                        type: 2
+                        , title: '添加'
+                        , content: BASE_WEB + 'func/policeInfo/edit'
+                        , maxmin: true
+                        , area: area   // 宽高
+                        , btn: ['确定', '取消']
+                        , yes: function (index, layero) {
+                            //点击确认触发 iframe 内容中的按钮提交
+                            var submit = layero.find('iframe').contents().find("#kFormSubmit");
+                            submit.click();
+                        }
+                    });
+                    break;
+                case 'batchdel':
+                    if (checkData.length === 0) {
+                        return kvfKit.warningMsg('请选择数据');
+                    }
+                    layer.confirm('确定删除吗？', function (index) {
+                        var ids = [];
+                        $.each(checkData, function (i, n) {
+                            ids[i] = n.id;
+                        });
+
+                        //执行 Ajax 后重载
+                        $.ajax({
+                            type: req.type.post,
+                            url: BASE_WEB + 'func/policeInfo/batchdel',
+                            data: {ids: ids.toString()},
+                            success: function (r) {
+                                if (r.code === req.status.ok) {
+                                    table.reload(tableId);
+                                    kvfKit.sucessMsg('已删除');
+                                } else {
+                                    kvfKit.errorMsg(r.msg);
+                                }
+                            }
+                        });
+                    });
+                    break;
+            }
+        });
+
+        // 表格行按钮 监听事件
+        table.on('tool(' + tableId + ')', function (obj) {
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+            if (layEvent === 'jump') {
+                window.open(api.func.myFile + '?id=' + data.id, '_blank');
+            }
+
+            if (layEvent === 'dangan') {
+                window.open(api.func.myFile + '?id=' + data.id, '_blank');
+            }
+
+            if (layEvent === 'hist') {
+                layer.open({
+                    type: 2
+                    , title: '个人履历'
+                    , content: BASE_WEB + 'func/history/index?pId=' + data.id
+                    , maxmin: true
+                    , area: ['900px', '80%']
+                });
+            }
+
+            if (layEvent === 'achieve') {
+                layer.open({
+                    type: 2
+                    , title: '个人奖励'
+                    , content: BASE_WEB + 'func/achievement/index?pId=' + data.id
+                    , maxmin: true
+                    , area: ['1200px', '80%']
+                });
+            }
+
+            if (layEvent === 'test') {
+                layer.open({
+                    type: 2
+                    , title: '年度考核'
+                    , content: BASE_WEB + 'func/yearTest/index?pId=' + data.id
+                    , maxmin: true
+                    , area: ['900px', '80%']
+                });
+            }
+
+            if (layEvent === 'punish') {
+                layer.open({
+                    type: 2
+                    , title: '惩戒'
+                    , content: BASE_WEB + 'func/punish/index?pId=' + data.id
+                    , maxmin: true
+                    , area: ['1200px', '80%']
+                });
+            }
+
+            if (layEvent === 'edit') {
+                layer.open({
+                    type: 2
+                    , title: '编辑'
+                    , content: BASE_WEB + 'func/policeInfo/edit?id=' + data.id
+                    , maxmin: true
+                    , area: area   // 宽高
+                    , btn: ['确定', '取消']
+                    , yes: function (index, layero) {
+                        //点击确认触发 iframe 内容中的按钮提交
+                        var submit = layero.find('iframe').contents().find("#kFormSubmit");
+                        submit.click();
+                    }
+                });
+            }
+            if (layEvent === 'del') {
+                layer.confirm('确定删除吗？', function (index) {
+                    //执行 Ajax 后重载
+                    $.ajax({
+                        type: req.type.post,
+                        url: BASE_WEB + 'func/policeInfo/del/' + data.id,
+                        async: false,
+                        success: function (r) {
+                            if (r.code === req.status.ok) {
+                                table.reload(tableId);
+                                kvfKit.sucessMsg('已删除');
+                            } else {
+                                kvfKit.errorMsg(r.msg);
+                            }
+                        }
+                    });
+                });
+            }
+        });
+
+
+        // 监听查询
+        form.on('submit(kTableSearchFilter)', function (obj) {
+            renderTableData(obj.field);
+            return false;
+        });
+
+        var active = {
+            refresh: function () {
+                var $form = $('form');
+                $form[0].reset();
+                renderTableData(kvfKit.getFormJson($form));
+            }
+        };
+
+        kvfKit.activeInit(active);
+
+        function renderTableData(params) {
+            params = params ? params : {};
+
+            tableIns.reload({
+                where: params,
+                page: {curr: 1}
+            });
+        }
+
+        // 绑定监听回车事件
+        kvfKit.bindEnterEventForLayuiForm();
+
+    });
+</script>
+
+</body>
+<script type="text/html" id="LAY-excel-export-ans">
+    {{# layui.each(d.data, function(file_index, item){ }}
+    <blockquote class="layui-elem-quote">{{d.files[file_index].name}}</blockquote>
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            {{# layui.each(item, function(sheet_name, content) { }}
+            <li>{{sheet_name}}</li>
+            {{# }); }}
+        </ul>
+        <div class="layui-tab-content">
+            {{# layui.each(item, function(sheet_name, content) { }}
+            <div class="layui-tab-item">
+                <table class="layui-table">
+                    {{# layui.each(content, function(row_index, value) { }}
+                    {{# var col_index = 0 }}
+                    <tr>
+                        {{# layui.each(value, function(col_key, val) { }}
+                        <td id="table-export-{{file_index}}-{{sheet_name}}-{{row_index}}-{{col_index++}}">{{val}}</td>
+                        {{# });}}
+                    </tr>
+                    {{# });}}
+                </table>
+                <pre class="layui-code">{{JSON.stringify(content, null, 2)}}</pre>
+            </div>
+            {{# }); }}
+        </div>
+    </div>
+    {{# }) }}
+</script>
+</html>

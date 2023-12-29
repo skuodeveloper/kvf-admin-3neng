@@ -1,0 +1,216 @@
+@charset "UTF-8";
+/**!
+ * 子页公共css
+ * date:2021-07-01
+ * author: wuzhou;
+ */
+.page-loading {
+  background-color: #151a3b;
+}
+
+.main-wrap {
+  min-width: 1200px;
+}
+
+.main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  color: #fff;
+  background: #151a3b;
+  overflow: auto;
+}
+
+.main-top {
+  height: 100px;
+  height: 1rem;
+  background: url("../css/images/page_common/page_top_bg.png") top left no-repeat;
+  background-size: 100% 100%;
+}
+
+.main-top .page-name {
+  margin: 0.16rem auto 0;
+  width: 469px;
+  width: 4.69rem;
+}
+
+.main-top .page-name > img {
+  width: 469px;
+  width: 4.69rem;
+  height: 69px;
+  height: 0.69rem;
+  vertical-align: top;
+}
+
+.main-top .date {
+  margin-left: 23px;
+  margin-left: 0.23rem;
+  font-size: 18px;
+  font-size: 0.18rem;
+  color: #aa8ff4;
+  line-height: 72px;
+  line-height: 0.72rem;
+}
+
+.main-top .date > i {
+  width: 1px;
+  width: 0.01rem;
+  height: 14px;
+  height: 0.14rem;
+  background: #9d80ec;
+  margin: 30px 10px;
+  margin: 0.3rem 0.1rem;
+}
+
+.main-top .main-top-right {
+  margin: 15px 23px 0px 0px;
+  margin: 0.15rem 0.23rem 0rem 0rem;
+}
+
+.main-top .main-top-right .search {
+  border-radius: 8px;
+  border-radius: 0.08rem;
+  margin-left: 40px;
+  margin-left: 0.4rem;
+  border: 0.01rem solid #9a7ee8;
+  width: 266px;
+  width: 2.66rem;
+  height: 42px;
+  height: 0.42rem;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(119, 116, 209, 0.48)), to(rgba(81, 90, 182, 0.48)));
+  background: linear-gradient(to top, rgba(119, 116, 209, 0.48), rgba(81, 90, 182, 0.48));
+}
+
+.main-top .main-top-right .search .search-btn {
+  cursor: pointer;
+  margin: 13px 13px 0px 0px;
+  margin: 0.13rem 0.13rem 0rem 0rem;
+  width: 22px;
+  width: 0.22rem;
+  height: 24px;
+  height: 0.24rem;
+  background: url("../css/images/search_btn_bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.main-top .main-top-right .search .search-box {
+  margin: 0px 45px 0px 16px;
+  margin: 0rem 0.45rem 0rem 0.16rem;
+  height: 100%;
+}
+
+.main-top .main-top-right .search .search-box > input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: none;
+  color: #cacbfb;
+  font-size: 16px;
+  font-size: 0.16rem;
+}
+
+.main-top .main-top-right .search .search-box > input::-webkit-input-placeholder {
+  color: #cacbfb;
+  font-size: 16px;
+  font-size: 0.16rem;
+}
+
+.main-top .main-top-right .user,
+.main-top .main-top-right .back {
+  cursor: pointer;
+  margin: 10px 0px 0px 20px;
+  margin: 0.1rem 0rem 0rem 0.2rem;
+}
+
+.main-top .main-top-right .user > img,
+.main-top .main-top-right .back > img {
+  display: block;
+  height: 29px;
+  height: 0.29rem;
+}
+
+/* 返回区域 */
+.back-area {
+  margin: 0px 40px;
+  margin: 0rem 0.4rem;
+}
+
+.back-area .back-link {
+  display: block;
+  color: #fff;
+  padding-left: 65px;
+  padding-left: 0.65rem;
+  font-size: 28px;
+  font-size: 0.28rem;
+  line-height: 45px;
+  line-height: 0.45rem;
+  background: url("../css/images/page_common/back_ico.png") left center no-repeat;
+  background-size: 45px 45px;
+  background-size: 0.45rem 0.45rem;
+}
+
+.back-area .info-item {
+  width: 394px;
+  width: 3.94rem;
+  line-height: 45px;
+  line-height: 0.45rem;
+}
+
+.back-area .info-item .info-time {
+  color: #aca3d8;
+}
+
+.back-area .info-item > a {
+  display: block;
+  color: #fff;
+  padding-left: 17px;
+  padding-left: 0.17rem;
+  margin-right: 123px;
+  margin-right: 1.23rem;
+  background: url("../css/images/page_common/info_ico.png") left center no-repeat;
+  background-size: 7px 13px;
+  background-size: 0.07rem 0.13rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.back-area .info-item > a:hover {
+  color: #05ecfb;
+}
+
+/* 内容框 */
+.content-wrap {
+  margin: 20px 40px 40px;
+  margin: 0.2rem 0.4rem 0;
+  /*   min-height: 556px; */
+  /*   min-height: 5.56rem; */
+  padding-bottom: 20px;
+  padding-bottom: 0.2rem;
+  border-radius: 9px;
+  border-radius: 0.09rem;
+  /* background-color: #3d3677; */
+  border-top: 1px solid #f6f6f7;
+}
+
+/* 搜索框 */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    height: 40px;
+}
+
+.search-form .mini-button {
+    margin-left: 20px;
+    padding: 0 8px;
+    border-color: #3f99f8;
+    border-radius: 5px;
+    background: #3f99f8;
+}
+
+.fui-content {
+    height: 100% !important;
+}

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.taobao.top:top-api-sdk-dev:dingtalk-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/taobao/top/top-api-sdk-dev/dingtalk-SNAPSHOT/top-api-sdk-dev-dingtalk-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/taobao/top/top-api-sdk-dev/dingtalk-SNAPSHOT/top-api-sdk-dev-dingtalk-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/taobao/top/top-api-sdk-dev/dingtalk-SNAPSHOT/top-api-sdk-dev-dingtalk-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

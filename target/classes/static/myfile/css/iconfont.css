@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "demoIcon"; /* Project id 3579852 */
+  src: url('iconfont.woff2?t=1660116332860') format('woff2'),
+       url('iconfont.woff?t=1660116332860') format('woff'),
+       url('iconfont.ttf?t=1660116332860') format('truetype');
+}
+
+[class*="exticon-"],[class^="exticon-"] {
+  font-family: "demoIcon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.exticon-a-23:before {
+  content: "\e604";
+}
+
+.exticon-a-19:before {
+  content: "\e605";
+}
+
+.exticon-a-12:before {
+  content: "\e606";
+}
+
+.exticon-a-6:before {
+  content: "\e607";
+}
+
+.exticon-a-7:before {
+  content: "\e608";
+}
+
+.exticon-a-22:before {
+  content: "\e609";
+}
+
+.exticon-a-8:before {
+  content: "\e60a";
+}
+
+.exticon-a-2:before {
+  content: "\e60b";
+}
+
+.exticon-a-18:before {
+  content: "\e60c";
+}
+
+.exticon-a-9:before {
+  content: "\e60d";
+}
+
+.exticon-a-13:before {
+  content: "\e60e";
+}
+
+.exticon-a-5:before {
+  content: "\e60f";
+}
+
+.exticon-a-16:before {
+  content: "\e610";
+}
+
+.exticon-a-20:before {
+  content: "\e611";
+}
+
+.exticon-a-4:before {
+  content: "\e612";
+}
+
+.exticon-a-3:before {
+  content: "\e613";
+}
+
+.exticon-a-15:before {
+  content: "\e614";
+}
+
+.exticon-a-17:before {
+  content: "\e615";
+}
+
+.exticon-a-10:before {
+  content: "\e616";
+}
+
+.exticon-a-1:before {
+  content: "\e617";
+}
+
+.exticon-a-21:before {
+  content: "\e618";
+}
+
+.exticon-a-11:before {
+  content: "\e619";
+}
+
+.exticon-a-14:before {
+  content: "\e61a";
+}
+

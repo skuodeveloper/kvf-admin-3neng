@@ -1,0 +1,184 @@
+/* 列锁定问题 */
+.mini-grid-columns-lock {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	z-index: 9;
+}
+
+/* 高级搜索按钮样式 */
+.fui-search-trigger::before {
+	content: "\e6e4";
+}
+
+.fui-search-trigger.close, .fui-search-trigger:hover {
+	background: #0799ff;
+	color: #ffffff;
+}
+
+/* split样式 */
+.mini-splitter-handler-vertical .mini-splitter-pane1-button,
+	.mini-splitter-handler-vertical .mini-splitter-pane2-button {
+	display: inline-block;
+	width: 35px;
+	height: 15px;
+	zoom: 1;
+	float: left;
+	background: url(./images/splitter/mini-top.gif) no-repeat 0 0;
+}
+
+.mini-splitter-handler-vertical .mini-splitter-pane2-button {
+	background: url(./images/splitter/mini-bottom.gif) no-repeat 0 0;
+}
+
+.mini-splitter-border {
+	/* border: solid 1px #8c8c8c; */
+	position: relative;
+	overflow: hidden;
+}
+
+.mini-tabs-bodys {
+	position: relative;
+	/* 	border: solid 1px #eaeaeb; */
+	border-radius: 2px;
+	padding: 8px;
+	background: #fff;
+	-webkit-box-sizing: border-box;
+	/* box-sizing: border-box; */
+	text-align: left;
+	overflow: hidden;
+}
+
+.mini-splitter-pane1-vertical {
+	border: 0;
+	/* border-bottom: solid 1px #8c8c8c; */
+}
+
+.mini-splitter-pane2-vertical {
+	border: 0;
+	/* border-top: solid 1px #8c8c8c; */
+}
+
+.mini-splitter-border {
+	position: relative;
+	border-width: 0px;
+	border-style: solid;
+	border-color: rgb(140, 140, 140);
+	border-image: initial;
+	overflow: hidden;
+}
+
+.mini-splitter {
+	font-size: unset !important;
+	font-family: unset !important;
+}
+
+/* 修改弹出的错误按钮 */
+.mini-messagebox-error::before {
+	content: "\e6fe";
+}
+
+.mini-messagebox-deny, .mini-messagebox-error, .mini-messagebox-info,
+	.mini-messagebox-question, .mini-messagebox-success,
+	.mini-messagebox-warning {
+	color: #3472d7;
+}
+
+/* 左右上下移动的按钮 */
+.hr-movebtn {
+	position: relative;
+	width: 35px;
+	height: 24px;
+	margin-top: 4px;
+	padding: 0;
+	cursor: pointer;
+	-webkit-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+	border: 1px solid #d6d6d6;
+	border-radius: 4px;
+	color: #858585;
+	outline: 0;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.hr-upbtn {
+	width: 55px;
+	height: 28px;
+}
+
+.hrselect {
+	width: 100%;
+	outline: 0;
+	font-family: inherit;
+	font-size: 14px;
+	background: 0 0;
+	line-height: .3rem;
+	height: .3rem;
+	color: #4e5463;
+	border: 1px solid #d6d6d6;
+}
+
+/* 全局调整text-area的下边距 */
+span.mini-textarea {
+	height: 100% !important;
+}
+
+.mini-tabs-firstSpace+.mini-tab:before {
+	background: transparent;
+}
+
+/* 提供css自定义修改滚动条的宽度，项目组提出的要求 */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px
+}
+
+/* 开启了行编辑后，处理列变蓝效果的css */
+.editdatagrid4list .mini-grid-rowEdit {
+	background: #fff;
+}
+
+.editdatagrid4list .mini-grid-row-alt {
+	background: #f5f8fd;
+}
+
+/* 全局tab下面padding取消 */
+.mini-tabs-bodys {
+	padding: 0;
+}
+.mini-splitter-handler-vertical .mini-splitter-pane1-button {
+	margin-top: -8px;
+	border-radius: 14px 14px 0 0;
+	width: 28px;
+	height: 14px;
+	background: url("./images/splitter/mini_top.png") center no-repeat !important;
+	background-size: 100% 100% !important;
+}
+
+.mini-splitter-handler-vertical .mini-splitter-pane1-button:hover {
+	background-image: url('./images/splitter/mini_top_hover.png')!important;
+}
+
+.mini-splitter-handler-vertical .mini-splitter-pane2-button {
+	border-radius: 0 0 14px 14px;
+	width: 28px;
+	height: 14px;
+	background: url("./images/splitter/mini_buttom.png") center no-repeat !important;
+	background-size: 100% 100% !important;
+}
+
+.mini-splitter-handler-vertical .mini-splitter-pane2-button:hover {
+	background-image: url('./images/splitter/mini_buttom_hover.png')!important;
+}
+.mini-splitter-handler-vertical .mini-splitter-pane1-button {
+	margin-top: -1px;
+	background: url('./images/splitter/mini_top.png') center no-repeat !important;
+}
+
+.mini-splitter-handler-vertical .mini-splitter-pane2-button {
+	margin-top: -1px;
+	background: url('./images/splitter/mini_bottom.png') center no-repeat !important;
+}

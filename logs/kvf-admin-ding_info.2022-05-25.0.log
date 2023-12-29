@@ -1,0 +1,127 @@
+2022-05-25 00:19:22.738 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 00:19:22.743 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 01:19:22.929 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 01:19:22.930 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 02:19:23.120 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 02:19:23.121 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 03:19:23.311 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 03:19:23.312 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 04:19:23.502 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 04:19:23.502 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 05:19:23.693 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 05:19:23.693 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 06:19:23.884 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 06:19:23.885 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 07:19:24.076 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 07:19:24.076 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 08:19:24.267 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 08:19:24.268 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 08:59:21.989 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-25 08:59:21.991 [SpringContextShutdownHook] INFO  o.s.cache.ehcache.EhCacheManagerFactoryBean - Shutting down EhCache CacheManager
+2022-05-25 08:59:22.060 [SpringContextShutdownHook] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource start closing ....
+2022-05-25 08:59:22.092 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2022-05-25 08:59:22.093 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-05-25 08:59:22.093 [SpringContextShutdownHook] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource all closed success,bye
+2022-05-25 08:59:22.096 [SpringContextShutdownHook] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Disabled session validation scheduler.
+2022-05-25 11:11:26.751 [restartedMain] INFO  com.kalvin.kvf.KvfAdminApplication - Starting KvfAdminApplication on 20201027-PC with PID 32564 (D:\java\kvf-admin-3neng\target\classes started by Administrator in D:\java\kvf-admin-3neng)
+2022-05-25 11:11:26.755 [restartedMain] INFO  com.kalvin.kvf.KvfAdminApplication - The following profiles are active: test
+2022-05-25 11:11:26.798 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-25 11:11:26.799 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-25 11:11:27.584 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-25 11:11:27.586 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-05-25 11:11:27.639 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40ms. Found 0 Redis repository interfaces.
+2022-05-25 11:11:27.921 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroConfig' of type [com.kalvin.kvf.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$6fce998d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:27.990 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRealm' of type [com.kalvin.kvf.common.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.000 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.309 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'ehCacheManager' of type [org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.310 [restartedMain] INFO  org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.kalvin.kvf.common.shiro.UserRealm.authorizationCache' does not yet exist.  Creating now.
+2022-05-25 11:11:28.325 [restartedMain] INFO  org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.kalvin.kvf.common.shiro.UserRealm.authorizationCache]
+2022-05-25 11:11:28.334 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.360 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.403 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.564 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$4586f7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.579 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.592 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.628 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.kalvin.kvf.common.config.RedisConfig$$EnhancerBySpringCGLIB$$65dab4b0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:11:28.987 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7788 (http)
+2022-05-25 11:11:28.996 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7788"]
+2022-05-25 11:11:28.997 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-05-25 11:11:28.997 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.30]
+2022-05-25 11:11:29.114 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-05-25 11:11:29.115 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2316 ms
+2022-05-25 11:11:29.227 [restartedMain] INFO  com.kalvin.kvf.common.xss.XssFilter - init XssFilter...
+2022-05-25 11:11:29.411 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1,master} inited
+2022-05-25 11:11:29.412 [restartedMain] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource - load a datasource named [master] success
+2022-05-25 11:11:29.413 [restartedMain] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource initial loaded [1] datasource,primary datasource named [master]
+2022-05-25 11:11:31.130 [restartedMain] INFO  o.s.cache.ehcache.EhCacheManagerFactoryBean - Initializing EhCache CacheManager
+2022-05-25 11:11:31.451 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-25 11:11:31.581 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2022-05-25 11:11:32.722 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2022-05-25 11:11:32.792 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7788"]
+2022-05-25 11:11:32.817 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 7788 (http) with context path ''
+2022-05-25 11:11:32.820 [restartedMain] INFO  com.kalvin.kvf.KvfAdminApplication - Started KvfAdminApplication in 6.649 seconds (JVM running for 7.609)
+2022-05-25 11:12:00.774 [http-nio-7788-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-25 11:12:00.774 [http-nio-7788-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-05-25 11:12:00.788 [http-nio-7788-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 13 ms
+2022-05-25 11:12:00.810 [http-nio-7788-exec-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+2022-05-25 11:15:20.460 [http-nio-7788-exec-7] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://127.0.0.1:3306/kvf_admin_3neng?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true, version : 1.2.5, lastPacketReceivedIdleMillis : 173592
+2022-05-25 11:15:20.461 [http-nio-7788-exec-7] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://127.0.0.1:3306/kvf_admin_3neng?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true, version : 1.2.5, lastPacketReceivedIdleMillis : 195847
+2022-05-25 12:12:01.013 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 12:12:01.016 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  [1] sessions were stopped.
+2022-05-25 13:12:01.195 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 13:12:01.196 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 14:08:51.860 [http-nio-7788-exec-4] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://127.0.0.1:3306/kvf_admin_3neng?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true, version : 1.2.5, lastPacketReceivedIdleMillis : 108652
+2022-05-25 14:08:51.864 [http-nio-7788-exec-4] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://127.0.0.1:3306/kvf_admin_3neng?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true, version : 1.2.5, lastPacketReceivedIdleMillis : 132699
+2022-05-25 14:12:01.387 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 14:12:01.388 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.
+2022-05-25 15:12:01.578 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+2022-05-25 15:12:01.579 [SessionValidationThread-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Finished session validation.  [1] sessions were stopped.
+2022-05-25 15:20:45.584 [Thread-20] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-25 15:20:45.586 [Thread-20] INFO  o.s.cache.ehcache.EhCacheManagerFactoryBean - Shutting down EhCache CacheManager
+2022-05-25 15:20:45.609 [Thread-20] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource start closing ....
+2022-05-25 15:20:45.612 [Thread-20] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2022-05-25 15:20:45.612 [Thread-20] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-05-25 15:20:45.612 [Thread-20] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource all closed success,bye
+2022-05-25 15:20:45.614 [Thread-20] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Disabled session validation scheduler.
+2022-05-25 15:20:45.920 [restartedMain] INFO  com.kalvin.kvf.KvfAdminApplication - Starting KvfAdminApplication on 20201027-PC with PID 32564 (D:\java\kvf-admin-3neng\target\classes started by Administrator in D:\java\kvf-admin-3neng)
+2022-05-25 15:20:45.920 [restartedMain] INFO  com.kalvin.kvf.KvfAdminApplication - The following profiles are active: test
+2022-05-25 15:20:46.303 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-25 15:20:46.303 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-05-25 15:20:46.334 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30ms. Found 0 Redis repository interfaces.
+2022-05-25 15:20:46.415 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroConfig' of type [com.kalvin.kvf.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$6fce998d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.429 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRealm' of type [com.kalvin.kvf.common.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.431 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.436 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'ehCacheManager' of type [org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.436 [restartedMain] INFO  org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.kalvin.kvf.common.shiro.UserRealm.authorizationCache.1' does not yet exist.  Creating now.
+2022-05-25 15:20:46.442 [restartedMain] INFO  org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.kalvin.kvf.common.shiro.UserRealm.authorizationCache.1]
+2022-05-25 15:20:46.444 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.451 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.462 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.469 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$4586f7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.476 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.480 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.495 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.kalvin.kvf.common.config.RedisConfig$$EnhancerBySpringCGLIB$$65dab4b0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 15:20:46.695 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7788 (http)
+2022-05-25 15:20:46.696 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7788"]
+2022-05-25 15:20:46.696 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-05-25 15:20:46.696 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.30]
+2022-05-25 15:20:46.728 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-05-25 15:20:46.728 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 803 ms
+2022-05-25 15:20:46.830 [restartedMain] INFO  com.kalvin.kvf.common.xss.XssFilter - init XssFilter...
+2022-05-25 15:20:46.918 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2,master} inited
+2022-05-25 15:20:46.918 [restartedMain] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource - load a datasource named [master] success
+2022-05-25 15:20:46.919 [restartedMain] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource initial loaded [1] datasource,primary datasource named [master]
+2022-05-25 15:20:48.336 [restartedMain] INFO  o.s.cache.ehcache.EhCacheManagerFactoryBean - Initializing EhCache CacheManager
+2022-05-25 15:20:48.557 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-25 15:20:48.641 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2022-05-25 15:20:49.290 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2022-05-25 15:20:49.343 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7788"]
+2022-05-25 15:20:49.348 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 7788 (http) with context path ''
+2022-05-25 15:20:49.348 [restartedMain] INFO  com.kalvin.kvf.KvfAdminApplication - Started KvfAdminApplication in 3.473 seconds (JVM running for 14963.343)
+2022-05-25 15:20:49.350 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2022-05-25 16:10:18.535 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-25 16:10:18.538 [SpringContextShutdownHook] INFO  o.s.cache.ehcache.EhCacheManagerFactoryBean - Shutting down EhCache CacheManager
+2022-05-25 16:10:18.546 [SpringContextShutdownHook] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource start closing ....
+2022-05-25 16:10:18.546 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2022-05-25 16:10:18.547 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2022-05-25 16:10:18.547 [SpringContextShutdownHook] INFO  c.b.dynamic.datasource.DynamicRoutingDataSource - dynamic-datasource all closed success,bye

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="common/base::pagetitle"></title>
+    <link th:replace="common/base::static"/>
+</head>
+<body>
+<div class="layui-form" style="padding: 20px 30px 0 0;">
+    <div class="layui-form-item layui-hide">
+        <label class="layui-form-label">警员id</label>
+        <div class="layui-input-inline">
+            <input type="text" name="pId" th:value="${editInfo.pId}" placeholder="请输入警员id" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-hide" >
+        <label class="layui-form-label">警员姓名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="pName" th:value="${editInfo.pName}" placeholder="请输入警员姓名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">惩戒内容</label>
+        <div class="layui-input-inline">
+            <select name="content" lay-verify="required" lay-search="" lay-filter="content">
+                <option value="">请选择</option>
+                <option value="1" th:selected = "${editInfo.content} == 1">受党纪政纪处分和组织处理，年度考核确定为基本称职、不进行年度考核和参加参加年度考核不确定等次</option>
+                <option value="2" th:selected = "${editInfo.content} == 2">受组织调整或组织处理被降职、免职、调整职务</option>
+                <option value="3" th:selected = "${editInfo.content} == 3">因违规、违纪受戒勉谈话、通报批评、警诫</option>
+                <option value="4" th:selected = "${editInfo.content} == 4">因病、事假累积超过半年</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">惩戒时间</label>
+        <div class="layui-input-inline">
+            <input lay-verify="required"  type="text" name="ggTime" id="ggTime" th:value="${#strings.replace(editInfo.ggTime,'T',' ')}" placeholder="请输入惩戒时间" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">分值</label>
+        <div class="layui-input-inline">
+            <input lay-verify="required"  type="text" name="score" th:value="${editInfo.score}" placeholder="请输入分值" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-hide">
+        <input type="button" lay-submit="" lay-filter="kFormSubmit" id="kFormSubmit">
+        <input type="text" name="id" th:value="${editInfo.id}" autocomplete="off" class="layui-input">
+    </div>
+</div>
+
+<script th:replace="common/base::context"></script>
+<script th:replace="common/base::mainjs"></script>
+<script>
+    layui.use(['form', 'laydate'], function () {
+        var $ = layui.$, form = layui.form, laydate = layui.laydate;
+
+
+        laydate.render({
+            elem: '#ggTime' // 指定元素
+        });
+        laydate.render({
+            elem: '#createTime' // 指定元素
+            ,type: 'datetime'
+        });
+
+        //监听提交
+        form.on('submit(kFormSubmit)', function(data){
+            var field = data.field; //获取提交的字段
+            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+
+            var url = field.id ? 'func/punish/edit' : 'func/punish/add';
+            //提交 Ajax 成功后，关闭当前弹层并重载表格
+            $.ajax({
+                type: req.type.post,
+                url: BASE_WEB + url,
+                data: field,
+                async: false,
+                success: function (r) {
+                    if (r.code === req.status.ok) {
+                        // 重载表格
+                        parent.layui.table.reload('kContentTable');
+                        parent.layer.close(index); //再执行关闭
+                    } else {
+                        kvfKit.errorMsg(r.msg);
+                    }
+                }
+            });
+
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+.ga-link {
+	color: #2590eb;
+}
+
+.water-mark {
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.buttonedit-search .mini-buttonedit-icon {
+	background: url(images/search.gif) no-repeat 50% 50%;
+}
+
+.fui-form.view .mini-outputtext {
+	border: 1px solid #bdbec1 !important;
+	text-indent: 5px;
+	min-height: 24px;
+}
+
+.fui-form.view .form-row {
+	/**border-bottom: 1px dashed #999;**/
+	
+}
+
+.form-label {
+	font-weight: bold;
+}
+
+body .mini-textarea textarea.mini-textbox-input {
+	height: 100px;
+}
+
+.no-border {
+	border: 0px !important;
+	outline: 0px !important;
+	background-color: transparent;
+}
+
+.no-border * {
+	border: 0px !important;
+	outline: 0px !important;
+	background-color: transparent;
+}
+
+.text-left {
+	text-align: left !important;
+}
+
+.text-left * {
+	text-align: left !important;
+}
+
+.width-auto {
+	width: auto;
+}
+
+.photo-div {
+	margin: auto;
+	width: 96px;
+}
+
+.photo-div img {
+	width: 96px;
+	height: 140px;
+}
+
+.gis-locate {
+	width: 72px;
+	height: 26px;
+	padding-left: 4px;
+	padding-right: 4px;
+	text-indent: 26px;
+	line-height: 26px;
+	cursor: pointer;
+}
+
+.gis-draw {
+	width: 72px;
+	height: 26px;
+	padding-left: 4px;
+	padding-right: 4px;
+	text-indent: 26px;
+	line-height: 26px;
+	cursor: pointer;
+}
+
+.gis-locate.on {
+	background: url(images/locate/locate-on.png) no-repeat;
+}
+
+.gis-locate.off {
+	background: url(images/locate/locate-off.png) no-repeat;
+}
+
+.gis-draw.on {
+	background: url(images/locate/locate-on.png) no-repeat;
+}
+
+.gis-draw.off {
+	background: url(images/locate/locate-off.png) no-repeat;
+}
+
+.gis-view {
+	width: 72px;
+	height: 26px;
+	padding-left: 4px;
+	padding-right: 4px;
+	text-indent: 26px;
+	line-height: 26px;
+	cursor: pointer;
+}
+
+.gis-view.on {
+	background: url(images/locate/locate-on.png) no-repeat;
+}
+
+.gis-view.off {
+	background: url(images/locate/locate-off.png) no-repeat;
+}
+
+.attach-list {
+	width: 100%;
+}
+
+.attach-list-process {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100%;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 14px;
+}
+
+.attach-list-process .processing {
+	width: 0px;
+	height: 100%;
+	background-color: #ccf1fb;
+}
+
+.attach-list-item {
+	float: left;
+	width: 100px;
+	margin: 6px 10px 6px 10px;
+}
+
+.attach-list-item-body {
+	width: 100%;
+	height: 135px;
+	cursor: pointer;
+}
+
+.attach-list-item-foot {
+	width: 100%;
+	text-align: left;
+}
+
+.attach-list-item-foot .filename {
+	float: left;
+	display: block;
+	width: 70px;
+	word-wrap: nowrap;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.attach-list-item-foot .delete {
+	float: left;
+	width: 30px;
+	text-align: center;
+	cursor: pointer;
+	color: blue;
+}
+
+.attach-list-item-body img {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+.dialog-shade {
+	position: absolute;
+	z-index: 4999;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+
+.input-dialog {
+	position: absolute;
+	z-index: 5000;
+	background-color: #FFF;
+	border-radius: 5px;
+}
+
+.input-dialog .input-content {
+	width: 100%;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.input-dialog .input-content .input-textarea {
+	display: box;
+	color: #6e622e;
+	font-size: 15px;
+	width: 100%;
+	height: 100%;
+	font-family: "microsoft yahei", simsun, sans-serif;
+	resize: none;
+}
+
+.input-dialog .input-buttons {
+	padding-top: 12px;
+	height: 28px;
+	width: 222px;
+	margin: auto;
+}
+
+.input-dialog .input-buttons .input-btn {
+	float: left;
+	background-color: rgb(37, 144, 235);
+	border-color: #FFF;
+	border-radius: 3px;
+	height: 28px;
+	width: 80px;
+	color: #fff;
+	border: none;
+	line-height: 28px;
+	cursor: pointer;
+	outline: none;
+}
+
+/*image-dialog*/
+.image-dialog-link {
+	
+}
+
+.image-dialog {
+	position: absolute;
+	left: 30px;
+	top: 50px;
+	z-index: 5000;
+	background-color: #F4F4F4;
+	font-family: "microsoft yahei", simsun, sans-serif;
+	border: 0 !important;
+	overflow: hidden !important;
+	border-radius: 5px;
+}
+
+.image-dialog div {
+	overflow: hidden !important;
+	border: 0 !important;
+}
+
+.image-dialog-head {
+	width: 100%;
+	height: 36px;
+	text-align: left;
+	text-indent: 20px;
+	line-height: 36px;
+	font-size: 20px;
+	color: #FFF;
+	padding-left: 0px !important;
+}
+
+.image-dialog-close {
+	font-family: ActionIcon !important;
+	float: right;
+	width: 36px;
+	height: 100%;
+	text-align: center;
+	text-indent: 0px;
+	font-size: 14px;
+	color: #333;
+	cursor: pointer;
+}
+
+.image-dialog-close:before {
+	content: '\e6de';
+}
+
+.image-dialog-close:hover {
+	color: #f65637;
+}
+
+.image-dialog-toolbar {
+	width: 100%;
+	height: 40px;
+}
+
+.image-dialog-icon {
+	float: left;
+	width: 25px;
+	height: 25px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 7px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.image-dialog-icon:first-child {
+	margin-left: 50px;
+}
+
+.image-dialog-icon[type="left"] {
+	background-image: url(images/image/image-left-out.png);
+}
+
+.image-dialog-icon[type="left"]:hover {
+	background-image: url(images/image/image-left-hover.png);
+}
+
+.image-dialog-icon[type="right"] {
+	background-image: url(images/image/image-right-out.png);
+}
+
+.image-dialog-icon[type="right"]:hover {
+	background-image: url(images/image/image-right-hover.png);
+}
+
+.image-dialog-icon[type="bigger"] {
+	background-image: url(images/image/image-bigger-out.png);
+}
+
+.image-dialog-icon[type="bigger"]:hover {
+	background-image: url(images/image/image-bigger-hover.png);
+}
+
+.image-dialog-icon[type="smaller"] {
+	background-image: url(images/image/image-smaller-out.png);
+}
+
+.image-dialog-icon[type="smaller"]:hover {
+	background-image: url(images/image/image-smaller-hover.png);
+}
+
+.image-dialog-icon[type="download"] {
+	background-image: url(images/image/image-download-out.png);
+}
+
+.image-dialog-icon[type="download"]:hover {
+	background-image: url(images/image/image-download-hover.png);
+}
+
+.image-dialog-body {
+	width: 100%;
+}
+
+.image-dialog-body-content {
+	float: left;
+}
+
+.image-dialog-body-content img {
+	border: 0px;
+}
+
+.image-dialog-jump {
+	float: left;
+	height: 90%;
+	width: 60px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	cursor: pointer;
+}
+
+.image-dialog-jump[type="previous"] {
+	background-image: url(images/image/image-previous-out.png);
+}
+
+.image-dialog-jump[type="previous"]:hover {
+	background-image: url(images/image/image-previous-hover.png);
+}
+
+.image-dialog-jump[type="next"] {
+	background-image: url(images/image/image-next-out.png);
+}
+
+.image-dialog-jump[type="next"]:hover {
+	background-image: url(images/image/image-next-hover.png);
+}
+
+.image-dialog-resize {
+	position: absolute;
+	bottom: 1px;
+	right: 1px;
+	width: 13px;
+	height: 12px;
+	background: url(images/image/image-resize.gif) 50% 50% no-repeat;
+	cursor: se-resize;
+}
+
+.pdf-dialog {
+	position: absolute;
+	top: 25px;
+	width: 1300px;
+	background-color: #F4F4F4;
+	font-family: "microsoft yahei", simsun, sans-serif;
+	border: 0 !important;
+	overflow: hidden !important;
+	z-index: 5000;
+	border-radius: 5px;
+}
+
+.pdf-dialog div {
+	overflow: hidden !important;
+	border: 0 !important;
+}
+
+.pdf-dialog-head {
+	width: 100%;
+	height: 36px;
+	text-align: left;
+	text-indent: 20px;
+	line-height: 36px;
+	font-size: 20px;
+	/* 	color: #FFF; */
+	padding-left: 0px !important;
+}
+
+.pdf-dialog-close {
+	font-family: ActionIcon !important;
+	float: right;
+	width: 36px;
+	height: 100%;
+	text-align: center;
+	text-indent: 0px;
+	font-size: 14px;
+	color: #333;
+	cursor: pointer;
+}
+
+.pdf-dialog-close:before {
+	content: '\e6de';
+}
+
+.pdf-dialog-close:hover {
+	color: #f65637;
+}
+
+.pdf-dialog-body {
+	width: 100%;
+}
+
+.pdf-dialog-body iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.table-col-check-all-header .mini-grid-checkbox {
+	display: inline-block;
+	margin-right: 2px;
+	vertical-align: middle;
+	position: relative;
+	top: -2px;
+}
+
+.video-dialog {
+	position: absolute;
+	top: 25px;
+	width: 1300px;
+	background-color: #F4F4F4;
+	font-family: "microsoft yahei", simsun, sans-serif;
+	border: 0 !important;
+	overflow: hidden !important;
+	z-index: 5000;
+	border-radius: 5px;
+}
+
+.video-dialog div {
+	overflow: hidden !important;
+	border: 0 !important;
+}
+
+.video-dialog-head {
+	width: 100%;
+	height: 36px;
+	text-align: left;
+	text-indent: 20px;
+	line-height: 36px;
+	font-size: 20px;
+	color: #FFF;
+	padding-left: 0px !important;
+}
+
+.video-dialog-close {
+	font-family: ActionIcon !important;
+	float: right;
+	width: 36px;
+	height: 100%;
+	text-align: center;
+	text-indent: 0px;
+	font-size: 14px;
+	color: #333;
+	cursor: pointer;
+}
+
+.video-dialog-close:before {
+	content: '\e6de';
+}
+
+.video-dialog-close:hover {
+	color: #f65637;
+}
+
+.video-dialog-body {
+	width: 100%;
+}
+
+.video-dialog-body iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.photo-left-row {
+	width: 66.666%;
+	float: left;
+}
+
+.photo-right-box {
+	float: right;
+	width: 33.333%;
+}
+
+.photo-inner .form-label {
+	width: 25%;
+}
+
+.photo-inner .form-control {
+	width: 75%;
+}
+
+.photo-right-box .photo {
+	width: 96px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.photo-right-box .photo img {
+	width: 96px;
+	height: 140px;
+}
+
+.photo-right-box .photo-uploader {
+	width: 84px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tag-label {
+	float: left;
+	text-align: center;
+	border-radius: .25em;
+	font-size: 10px;
+	font-weight: 600;
+	padding: 1px 6px;
+	text-shadow: none;
+	margin: 1px 1px 1px 1px;
+}
+
+.tag-label.selected {
+	background-color: #1c84c6;
+	color: #FFFFFF;
+}
+
+.tag-label.clicked {
+	cursor: pointer;
+}
+
+.ga-splitter {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	height: 100%;
+}
+
+.ga-splitter>.splitter {
+	position: relative;
+	height: 50%;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.ga-splitter>.splitter.border {
+	border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.ga-splitter .resize-bar {
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	bottom: -5px;
+	z-index: 1000;
+	cursor: row-resize;
+}
+
+.ga-splitter>.splitter>iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kalvin.kvf.modules.func.mapper.PoliceInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kalvin.kvf.modules.func.entity.PoliceInfo">
+        <id column="id" property="id" />
+        <result column="xm" property="xm" />
+        <result column="sfzh" property="sfzh" />
+        <result column="tel" property="tel" />
+        <result column="dept_id" property="deptId" />
+        <result column="dept" property="dept" />
+        <result column="xb" property="xb" />
+        <result column="csny" property="csny" />
+        <result column="cjgzny" property="cjgzny" />
+        <result column="cjgany" property="cjgany" />
+        <result column="jwxl" property="jwxl" />
+        <result column="yjny" property="yjny" />
+        <result column="pass" property="pass" />
+        <result column="pass" property="pass" />
+        <result column="score" property="score" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       id, xm, sfzh, tel, dept_id, dept, xb, csny, cjgzny, cjgany, jwxl, yjny, pass, score, create_time
+    </sql>
+
+    <select id="selectPoliceInfoList" resultType="com.kalvin.kvf.modules.func.entity.PoliceInfo">
+        select <include refid="Base_Column_List" /> from func_police_info
+        <trim prefix="where" prefixOverrides="and">
+            <if test="policeInfo.xm != null and policeInfo.xm != ''">
+                and xm like concat(#{policeInfo.xm}, "%")
+            </if>
+            <if test="policeInfo.sfzh != null and policeInfo.sfzh != ''">
+                and sfzh like concat(#{policeInfo.sfzh}, "%")
+            </if>
+            <if test="policeInfo.tel != null and policeInfo.tel != ''">
+                and tel like concat(#{policeInfo.tel}, "%")
+            </if>
+            <if test="policeInfo.deptId != null">
+                and dept_id = #{policeInfo.deptId}
+            </if>
+            <if test="policeInfo.dept != null and policeInfo.dept != ''">
+                and dept like concat(#{policeInfo.dept}, "%")
+            </if>
+            <if test="policeInfo.xb != null and policeInfo.xb != ''">
+                and xb like concat(#{policeInfo.xb}, "%")
+            </if>
+            <if test="policeInfo.csny != null and policeInfo.csny != ''">
+                and csny like concat(#{policeInfo.csny}, "%")
+            </if>
+            <if test="policeInfo.cjgzny != null and policeInfo.cjgzny != ''">
+                and cjgzny like concat(#{policeInfo.cjgzny}, "%")
+            </if>
+            <if test="policeInfo.cjgany != null and policeInfo.cjgany != ''">
+                and cjgany like concat(#{policeInfo.cjgany}, "%")
+            </if>
+            <if test="policeInfo.jwxl != null and policeInfo.jwxl != ''">
+                and jwxl like concat(#{policeInfo.jwxl}, "%")
+            </if>
+            <if test="policeInfo.yjny != null and policeInfo.yjny != ''">
+                and yjny like concat(#{policeInfo.yjny}, "%")
+            </if>
+            <if test="policeInfo.createTime != null">
+                and create_time = #{policeInfo.createTime}
+            </if>
+        </trim>
+        order by score desc
+    </select>
+
+</mapper>

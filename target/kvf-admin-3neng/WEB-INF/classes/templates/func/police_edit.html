@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="common/base::pagetitle"></title>
+    <link th:replace="common/base::static"/>
+    <script th:src="@{/static/js/select-tree.js}"></script>
+</head>
+<body>
+<div class="layui-form" style="padding: 20px 30px 0 0;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属部门</label>
+        <div class="layui-input-inline">
+            <input type="text" id="deptId" th:value="${editInfo.deptId}" th:data-name="${editInfo.deptId}" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">姓名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="name" th:value="${editInfo.name}" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">身份证号</label>
+        <div class="layui-input-inline">
+            <input type="text" name="sfzh" th:value="${editInfo.sfzh}" placeholder="请输入身份证号" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">电话号码</label>
+        <div class="layui-input-inline">
+            <input type="text" name="tel" th:value="${editInfo.tel}" placeholder="请输入电话号码" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">现住地址</label>
+        <div class="layui-input-inline">
+            <input type="text" name="xzdz" th:value="${editInfo.xzdz}" placeholder="请输入现住地址" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">紧急联系人</label>
+        <div class="layui-input-inline">
+            <input type="text" name="emergencyContact" th:value="${editInfo.emergencyContact}" placeholder="请输入紧急联系人" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系人电话</label>
+        <div class="layui-input-inline">
+            <input type="text" name="contactTel" th:value="${editInfo.contactTel}" placeholder="请输入联系人电话" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系人单位</label>
+        <div class="layui-input-inline">
+            <input type="text" name="contactCompany" th:value="${editInfo.contactCompany}" placeholder="请输入联系人单位" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系人关系</label>
+        <div class="layui-input-inline">
+            <input type="text" name="relation" th:value="${editInfo.relation}" placeholder="请输入联系人关系" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-hide">
+        <input type="button" lay-submit="" lay-filter="kFormSubmit" id="kFormSubmit">
+        <input type="text" name="id" th:value="${editInfo.id}" autocomplete="off" class="layui-input">
+        <input type="text" name="dept" th:value="${editInfo.dept}" placeholder="保存dept" autocomplete="off" class="layui-input">
+    </div>
+</div>
+
+<script th:replace="common/base::context"></script>
+<script th:replace="common/base::mainjs"></script>
+<script>
+    layui.use(['form', 'laydate'], function () {
+        var $ = layui.$, form = layui.form, laydate = layui.laydate;
+
+        // 下拉树
+        var deptSelectTreeObj = initSelectTree("deptId", {
+            async: {
+                enable: true,
+                type: req.type.get,
+                url: api.sys.deptListTree,
+                autoParam: ["id=parentId"],
+                otherParam: {},
+                dataFilter: function (treeId, parentNode, responseData) {
+                    if (!responseData.data){
+                        return null;
+                    }
+                    var nodes = responseData.data;
+
+                    $.each(nodes, function(i, n){
+                        if (n.type === 0 || n.type === 1) {
+                            n.isParent = true;
+                        }
+                    });
+                    return nodes;
+                }
+            },
+            callback: {
+                beforeClick: function (treeId, treeNode, clickFlag) {
+                    //设置部门名称
+                    $('input[name="dept"]').val(treeNode.name);
+                    if (treeNode.level === 0) { // 不可选中
+                        return false;
+                    }
+                }
+            }
+        });
+
+        var deptNode = deptSelectTreeObj.getNodeByParam("id", 0, null);
+        deptSelectTreeObj.expandNode(deptNode);
+
+        //监听提交
+        form.on('submit(kFormSubmit)', function(data){
+            var field = data.field; //获取提交的字段
+            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+
+            var url = field.id ? 'func/police/edit' : 'func/police/add';
+            //提交 Ajax 成功后，关闭当前弹层并重载表格
+            $.ajax({
+                type: req.type.post,
+                url: BASE_WEB + url,
+                data: field,
+                async: false,
+                success: function (r) {
+                    if (r.code === req.status.ok) {
+                        // 重载表格
+                        parent.layui.table.reload('kContentTable');
+                        parent.layer.close(index); //再执行关闭
+                    } else {
+                        kvfKit.errorMsg(r.msg);
+                    }
+                }
+            });
+
+        });
+    })
+</script>
+</body>
+</html>

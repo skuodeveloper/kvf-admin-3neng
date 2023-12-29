@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kalvin.kvf.modules.func.mapper.AchievementMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kalvin.kvf.modules.func.entity.Achievement">
+        <id column="id" property="id" />
+        <result column="p_id" property="pId" />
+        <result column="p_name" property="pName" />
+        <result column="content" property="content" />
+        <result column="content1" property="content1" />
+        <result column="gg_time" property="ggTime" />
+        <result column="gg_year" property="ggYear" />
+        <result column="file_url" property="fileUrl" />
+        <result column="score" property="score" />
+        <result column="status" property="status" />
+        <result column="reason" property="reason" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       id, p_id, p_name, content, content1, gg_time, gg_year, file_url, score, status, reason, create_time, update_time
+    </sql>
+
+    <select id="selectAchievementList" resultType="com.kalvin.kvf.modules.func.entity.Achievement">
+        select <include refid="Base_Column_List" /> from func_achievement
+        <trim prefix="where" prefixOverrides="and">
+            <if test="achievement.pId != null">
+                and p_Id=#{achievement.pId}
+            </if>
+            <if test="achievement.pName != null and achievement.pName != ''">
+                and p_name like concat(#{achievement.pName}, "%")
+            </if>
+            <if test="achievement.content != null and achievement.content != ''">
+                and content like concat(#{achievement.content}, "%")
+            </if>
+            <if test="achievement.status != null">
+                and status = #{achievement.status}
+            </if>
+        </trim>
+        order by gg_time asc
+    </select>
+
+</mapper>

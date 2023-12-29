@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kalvin.kvf.modules.func.mapper.YearTestMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kalvin.kvf.modules.func.entity.YearTest">
+        <id column="id" property="id" />
+        <result column="p_id" property="pId" />
+        <result column="p_name" property="pName" />
+        <result column="content" property="content" />
+        <result column="gg_time" property="ggTime" />
+        <result column="score" property="score" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+       id, p_id, p_name, content, gg_time, score, create_time
+    </sql>
+
+    <select id="selectYearTestList" resultType="com.kalvin.kvf.modules.func.entity.YearTest">
+        select <include refid="Base_Column_List" /> from func_year_test
+        <trim prefix="where" prefixOverrides="and">
+            <if test="yearTest.pId != null">
+                and p_Id=#{yearTest.pId}
+            </if>
+            <if test="yearTest.pName != null and yearTest.pName != ''">
+                and p_name like concat(#{yearTest.pName}, "%")
+            </if>
+            <if test="yearTest.content != null">
+                and content = #{yearTest.content}
+            </if>
+            <if test="yearTest.ggTime != null and yearTest.ggTime != ''">
+                and gg_time = #{yearTest.ggTime}
+            </if>
+        </trim>
+        order by gg_time asc
+    </select>
+
+</mapper>

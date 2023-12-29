@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "SourceHanSansCN-Regular";
+	src: url("./fonts/SourceHanSansCN-Regular.woff") format("woff"),
+		url("./fonts/SourceHanSansCN-Regular.ttf") format("truetype"),
+		url("./fonts/SourceHanSansCN-Regular.eot") format("embedded-opentype");
+}
+
+@font-face {
+	font-family: "SourceHanSansCN-Medium";
+	src: url("./fonts/SourceHanSansCN-Medium.woff") format("woff"),
+		url("./fonts/SourceHanSansCN-Medium.eot") format("embedded-opentype"),
+		url("./fonts/SourceHanSansCN-Medium.ttf") format("truetype");
+}
+
+/* yui3 fonts */
+
+body {
+	color: #fff;
+	font-size: 14px;
+	font-family: "SourceHanSansCN-Regular";
+}
+
+
+input,
+button,
+textarea {
+	font-family: "SourceHanSansCN-Regular";
+	border: 0;
+	outline: 0;
+}
+
+input[type=text]::-ms-clear,
+input[type=password]::-ms-reveal {
+	display: none;
+}
+
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
+.placeholder {
+	color: #999;
+}
+
+.trans {
+	-webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+	background: none;
+}
+
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+	background: #685bd6;
+}
+
+
+::-webkit-scrollbar {
+	width: 10px!important;
+	height: 10px!important;
+}
